@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.Tetris.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\Uni\Year 3\CS-384\Unity\Tetris\.idea\.idea.Tetris\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
