@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class Tertis : MonoBehaviour
 {
-    private float prevTime;
+    private float _prevTime;
     [SerializeField] public float fallTime;
 
     // Width & Height of the game area
-    public static double width = 10, height = 16;
+    private const double Width = 10;
+    private const double Height = 16;
 
     [SerializeField] public Vector3 rotation;
-    
+    private SpawnShape _spawnShape;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        _spawnShape = FindObjectOfType<SpawnShape>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
@@ -46,14 +48,16 @@ public class Tertis : MonoBehaviour
             }
         }
         
-        if (Time.time - prevTime > ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) ? fallTime / 10 : fallTime))
+        if (Time.time - _prevTime > ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) ? fallTime / 10 : fallTime))
         {
             transform.position += new Vector3(0, -1, 0);
             if (!IsValidMove())
             {
                 transform.position -= new Vector3(0, -1, 0);
+                this.enabled = false;
+                _spawnShape.NewTetrisShape();
             }
-            prevTime = Time.time;
+            _prevTime = Time.time;
         }
     }
 
@@ -61,10 +65,11 @@ public class Tertis : MonoBehaviour
     {
         foreach (Transform children in transform)
         {
-            int x = Mathf.RoundToInt(children.transform.position.x);
-            int y = Mathf.RoundToInt(children.transform.position.y);
+            var position = children.transform.position;
+            int x = Mathf.RoundToInt(position.x);
+            int y = Mathf.RoundToInt(position.y);
         
-            if (x < 0 || x >= width || y < 0  || y >= height)
+            if (x < 0 || x >= Width || y < 0  || y >= Height)
             {
                 return false;
             }
