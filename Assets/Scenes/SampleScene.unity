@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a74002ba6ff6b4ea931f4c58fd2ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TetrisShape:
+  tetrisShape:
   - {fileID: 6553443240860666977, guid: 23180226e59489f4e9efe2aa6ce98e2f, type: 3}
   - {fileID: 823451669898442723, guid: 7f17bfad6fb8024438b0be3c6db6aec6, type: 3}
   - {fileID: 3513947167192318051, guid: d70d578ad27bb9b409cb94ec293e34f3, type: 3}

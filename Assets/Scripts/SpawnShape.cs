@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnShape : MonoBehaviour
 {
     public GameObject[] tetrisShape;
+
     // Start is called before the first frame update
     public void Start()
     {
