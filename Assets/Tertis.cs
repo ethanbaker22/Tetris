@@ -5,13 +5,12 @@ using UnityEngine;
 public class Tertis : MonoBehaviour
 {
     private float prevTime;
-    [SerializeField]
-    public float fallTime;
+    [SerializeField] public float fallTime;
 
     // Width & Height of the game area
     public static double width = 10, height = 16;
 
-    public Vector3 rotation;
+    [SerializeField] public Vector3 rotation;
     
     // Start is called before the first frame update
     void Start()
