@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Tertis : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Tertis : MonoBehaviour
 
     // Width & Height of the game area
     private const int Width = 10;
-    private const int Height = 16;
+    private const int Height = 25;
 
     //Rotation x,y,z which can be changed in the editor
     [SerializeField] public Vector3 rotation;
@@ -65,6 +66,8 @@ public class Tertis : MonoBehaviour
             {
                 transform.position -= new Vector3(0, -1, 0);
                 AddToGrid();
+                DeleteLinesUponComplete();
+
                 this.enabled = false;
                 _spawnShape.NewTetrisShape();
             }
@@ -73,38 +76,94 @@ public class Tertis : MonoBehaviour
         }
     }
 
-    /**
-     * 
-     */
-    void AddToGrid()
+    private void DeleteLinesUponComplete()
     {
-        foreach (Transform children in transform)
+        for (int i = Height - 1; i >= 0; i--)
         {
-            var position = children.transform.position;
-            int x = Mathf.RoundToInt(position.x);
-            int y = Mathf.RoundToInt(position.y);
+            if (LineFull(i))
+            {
+                DeleteFullLine(i);
+                MoveRowDown(i);
+            }
+        }
+    }
 
-            _grid[x, y] = children;
+
+    bool LineFull(int i)
+    {
+        for (int j = 0; j < Width; j++)
+        {
+            if (_grid[j, i] == null)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    void DeleteFullLine(int i)
+    {
+        for (int j = 0; j < Width; j++)
+        {
+            Destroy(_grid[j, i].gameObject);
+            _grid[j, i] = null;
+        }
+    }
+
+
+    void MoveRowDown(int i)
+    {
+        for (int y = i; y < Height; y++)
+        {
+            for (int j = 0; j < Width; j++)
+            {
+                if (_grid[j, y] != null)
+                {
+                    _grid[j, y - 1] = _grid[j, y];
+                    _grid[j, y] = null;
+                    _grid[j, y - 1].transform.position -= new Vector3(0, 1, 0);
+                }
+            }
         }
     }
 
     /**
      * 
      */
-    bool IsValidMove()
+    private void AddToGrid()
     {
         foreach (Transform children in transform)
         {
             var position = children.transform.position;
-            int x = Mathf.RoundToInt(position.x);
-            int y = Mathf.RoundToInt(position.y);
+            var x = Mathf.RoundToInt(position.x);
+            var y = Mathf.RoundToInt(position.y);
+
+            if (y <= Height-5)
+            {
+                _grid[x, y] = children;
+            }
+            
+        }
+    }
+
+    /**
+     * 
+     */
+    private bool IsValidMove()
+    {
+        foreach (Transform children in transform)
+        {
+            var position = children.transform.position;
+            var x = Mathf.RoundToInt(position.x);
+            var y = Mathf.RoundToInt(position.y);
 
             if (x < 0 || x >= Width || y < 0 || y >= Height)
             {
                 return false;
             }
 
-            if (_grid[x, y] != null)
+            if (_grid != null && _grid[x, y] != null)
             {
                 return false;
             }
