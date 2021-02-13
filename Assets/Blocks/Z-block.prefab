@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd7c2d317d38c614aa906265771902b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b225e9816ddd2d449a0c7d55c39d2405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd7c2d317d38c614aa906265771902b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b225e9816ddd2d449a0c7d55c39d2405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd7c2d317d38c614aa906265771902b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b225e9816ddd2d449a0c7d55c39d2405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -313,7 +313,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd7c2d317d38c614aa906265771902b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b225e9816ddd2d449a0c7d55c39d2405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -333,7 +333,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 821910021808144315}
-  - component: {fileID: 821910021808144312}
+  - component: {fileID: 5737724753813863423}
+  - component: {fileID: 4310116216834283308}
   m_Layer: 0
   m_Name: Z-block
   m_TagString: Untagged
@@ -359,7 +360,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &821910021808144312
+--- !u!114 &5737724753813863423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821910021808144314}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c3f0db57fe7fd46b1f6fc01882a116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4310116216834283308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,7 +381,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 821910021808144314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c76bc620c1585d4489b02c9f0f8b8cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4de5d7ab80da4790a28554951ecbb044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fallTime: 0.8
