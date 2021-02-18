@@ -78,7 +78,11 @@ public class Tetris : MonoBehaviour
         if (Time.time - _prevTime >
             ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) ? fallTime / 10 : fallTime))
         {
-            _score.AddToScore(1);
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            {
+                _score.AddToScore(1);
+            }
+            
             transform.position += new Vector3(0, -1, 0);
             if (!IsValidMove())
             {
