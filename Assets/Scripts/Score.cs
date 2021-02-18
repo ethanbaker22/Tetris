@@ -34,7 +34,7 @@ public class Score : MonoBehaviour
     public void AddToScore(int addScore)
     {
         _score += addScore;
-        print(addScore + "  " + _score);
+        // print(addScore + "  " + _score);
         UpdateScore();
     }
 
@@ -43,7 +43,7 @@ public class Score : MonoBehaviour
      */
     private void UpdateScore()
     {
-        print(_score);
+        // print(_score);
         scoreText.text = "Score: " + _score;
     }
 

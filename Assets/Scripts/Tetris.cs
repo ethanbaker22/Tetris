@@ -28,6 +28,10 @@ public class Tetris : MonoBehaviour
     // Add shapes to grid array to know where they are located
     private static readonly Transform[,] Grid = new Transform[Width, Height];
 
+    // Scoring depending on how many lines are cleared
+    public int oneLineScore = 40, twoLineScore = 100, threeLineScore = 300, fourLineScore = 1200;
+    private int _rowsCleared = 0;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -39,6 +43,7 @@ public class Tetris : MonoBehaviour
     private void Update()
     {
         CheckUserInput();
+        MultiRowClearing();
     }
 
     /**
@@ -91,7 +96,7 @@ public class Tetris : MonoBehaviour
             }
 
             transform.position += new Vector3(0, -1, 0);
-            
+
             // If not valid then move back
             if (!IsValidMove())
             {
@@ -137,7 +142,7 @@ public class Tetris : MonoBehaviour
             // Checks if Line is full
             if (LineFull(i))
             {
-                _score.AddToScore(100);
+                // _score.AddToScore(100);
                 DeleteFullLine(i);
                 MoveRowDown(i);
             }
@@ -148,16 +153,19 @@ public class Tetris : MonoBehaviour
     /**
      * Goes through the Grid to check for full lines
      */
-    private static bool LineFull(int i)
+    private bool LineFull(int y)
     {
-        for (int j = 0; j < Width; j++)
+        // Checks over x position for if its full
+        for (var x = 0; x < Width; x++)
         {
-            if (Grid[j, i] == null)
+            // If any position is null then row not full
+            if (Grid[x, y] == null)
             {
                 return false;
             }
         }
 
+        _rowsCleared++;
         return true;
     }
 
@@ -190,6 +198,33 @@ public class Tetris : MonoBehaviour
                     Grid[j, y - 1].transform.position -= new Vector3(0, 1, 0);
                 }
             }
+        }
+    }
+
+    /**
+     * 
+     */
+    private void MultiRowClearing()
+    {
+        if (_rowsCleared <= 0) return;
+        switch (_rowsCleared)
+        {
+            case 1:
+                _score.AddToScore(oneLineScore);
+                print("one line");
+                break;
+            case 2:
+                _score.AddToScore(twoLineScore);
+                print("two line");
+                break;
+            case 3:
+                _score.AddToScore(threeLineScore);
+                print("three line");
+                break;
+            case 4:
+                _score.AddToScore(fourLineScore);
+                print("four line");
+                break;
         }
     }
 
