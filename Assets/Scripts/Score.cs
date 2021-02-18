@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * Score.cs
+ * @author Ethan Baker - 986237
+ *
+ * Deals with the scoring system
+ */
 public class Score : MonoBehaviour
 {
     public Text scoreText;
 
     private static int _score;
+    private static int _finalScore;
     
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         UpdateScore();
     }
@@ -38,5 +45,13 @@ public class Score : MonoBehaviour
     {
         print(_score);
         scoreText.text = "Score: " + _score;
+    }
+
+    /**
+     * 
+     */
+    public void GetFinalScore(int final)
+    {
+        _finalScore = final;
     }
 }

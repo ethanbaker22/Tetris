@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /**
+ * SpawnShape.cs
  * @Author Ethan Baker - 986237
+ *
+ * Handles spawning new shapes
  */
 public class SpawnShape : MonoBehaviour
 {

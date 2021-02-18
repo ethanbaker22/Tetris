@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 /**
+ * Tetris.cs
  * @Author Ethan Baker - 986237
+ *
+ * This class sets out the main user control for the Tetris shapes. Fall time, movement rotation and check valid move is
+ * handled here. 
  */
 public class Tetris : MonoBehaviour
 {
@@ -16,16 +17,16 @@ public class Tetris : MonoBehaviour
     // Width & Height of the game area
     private const int Width = 10;
     private const int Height = 25;
-    
+
     //Rotation x,y,z which can be changed in the editor
     [SerializeField] public Vector3 rotation;
 
+    // Other classes 
     private SpawnShape _spawnShape;
     private Score _score;
-    // private UserInput _userInput;
 
     // Add shapes to grid array to know where they are located
-    private static Transform[,] _grid = new Transform[Width, Height];
+    private static readonly Transform[,] Grid = new Transform[Width, Height];
 
     // Start is called before the first frame update
     private void Start()
@@ -38,78 +39,102 @@ public class Tetris : MonoBehaviour
     private void Update()
     {
         CheckUserInput();
-        // SetScore();
     }
 
     /**
-     * 
+     * Checks to see if the shape can be moved to the position the user wants it too, if not the shape stays where it is
      */
     private void CheckUserInput()
     {
+        // Press left arrow to move one block left
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             transform.position += new Vector3(-1, 0, 0);
+
+            // If not valid then move back
             if (!IsValidMove())
             {
                 transform.position -= new Vector3(-1, 0, 0);
             }
         }
-        //
+        // Press right arrow to move one block right
         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             transform.position += new Vector3(1, 0, 0);
+
+            // If not valid then move back
             if (!IsValidMove())
             {
                 transform.position -= new Vector3(1, 0, 0);
             }
         }
-        //
+        // Press up to rotate the shape 90 degrees
         else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             transform.RotateAround(transform.TransformPoint(rotation), new Vector3(0, 0, 1), 90);
-            
+
+            // If not valid then move back
             if (!IsValidMove())
             {
                 transform.RotateAround(transform.TransformPoint(rotation), new Vector3(0, 0, 1), -90);
             }
         }
 
-        //
+        // Press down arrow to move shape down or Hold for it to go faster
         if (Time.time - _prevTime >
             ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) ? fallTime / 10 : fallTime))
         {
+            // If holding
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
                 _score.AddToScore(1);
             }
-            
+
             transform.position += new Vector3(0, -1, 0);
+            
+            // If not valid then move back
             if (!IsValidMove())
             {
                 transform.position -= new Vector3(0, -1, 0);
                 AddToGrid();
                 DeleteLinesUponComplete();
-
-                // if (IsGameOver())
-                // {
-                //     GameOver();
-                // }
-
-                this.enabled = false;
+                enabled = false;
                 _spawnShape.NewTetrisShape();
             }
 
             _prevTime = Time.time;
         }
+        // Mouse click to make shape go to the bottom of the available grid
+        else if (Time.time - _prevTime > ((Input.GetMouseButtonDown(0)) ? fallTime / 100 : fallTime))
+        {
+            // Mouse Click instant down
+            while (IsValidMove())
+            {
+                // Adds however many rows we went down
+                _score.AddToScore(1);
+                transform.position += new Vector3(0, -1, 0);
+            }
+
+            // If not valid move back
+            if (!IsValidMove())
+            {
+                transform.position -= new Vector3(0, -1, 0);
+                AddToGrid();
+                DeleteLinesUponComplete();
+                enabled = false;
+                _spawnShape.NewTetrisShape();
+            }
+        }
     }
 
     /**
-     * 
+     * Deletes lines when full
      */
     private void DeleteLinesUponComplete()
     {
         for (var i = Height - 1; i >= 0; i--)
         {
+            // Checks if Line is full
             if (LineFull(i))
             {
                 _score.AddToScore(100);
@@ -121,13 +146,13 @@ public class Tetris : MonoBehaviour
 
 
     /**
-     * 
+     * Goes through the Grid to check for full lines
      */
     private static bool LineFull(int i)
     {
         for (int j = 0; j < Width; j++)
         {
-            if (_grid[j, i] == null)
+            if (Grid[j, i] == null)
             {
                 return false;
             }
@@ -137,20 +162,20 @@ public class Tetris : MonoBehaviour
     }
 
     /**
-     * 
+     * Deletes Lines when Complete
      */
     private static void DeleteFullLine(int i)
     {
         for (int j = 0; j < Width; j++)
         {
-            Destroy(_grid[j, i].gameObject);
-            _grid[j, i] = null;
+            Destroy(Grid[j, i].gameObject);
+            Grid[j, i] = null;
         }
     }
 
 
     /**
-     * 
+     * Moves Row down after deleting old one
      */
     private static void MoveRowDown(int i)
     {
@@ -158,18 +183,18 @@ public class Tetris : MonoBehaviour
         {
             for (var j = 0; j < Width; j++)
             {
-                if (_grid[j, y] != null)
+                if (Grid[j, y] != null)
                 {
-                    _grid[j, y - 1] = _grid[j, y];
-                    _grid[j, y] = null;
-                    _grid[j, y - 1].transform.position -= new Vector3(0, 1, 0);
+                    Grid[j, y - 1] = Grid[j, y];
+                    Grid[j, y] = null;
+                    Grid[j, y - 1].transform.position -= new Vector3(0, 1, 0);
                 }
             }
         }
     }
 
     /**
-     * 
+     * Adds shape to grid when its in its final position 
      */
     private void AddToGrid()
     {
@@ -179,20 +204,20 @@ public class Tetris : MonoBehaviour
             var x = Mathf.RoundToInt(position.x);
             var y = Mathf.RoundToInt(position.y);
 
-            _grid[x, y] = children;
+            Grid[x, y] = children;
         }
 
         CheckIfGameOver();
     }
 
     /**
-     * 
+     * Checks to see if the grid is full. If so - Game Over
      */
-    private void CheckIfGameOver()
+    private static void CheckIfGameOver()
     {
-        for (int j = 0; j < Width; j++)
+        for (var j = 0; j < Width; j++)
         {
-            if (_grid[j, Height - 1] != null)
+            if (Grid[j, Height - 1] != null)
             {
                 GameOver();
             }
@@ -200,7 +225,7 @@ public class Tetris : MonoBehaviour
     }
 
     /**
-     * 
+     * Looks to see if the grid position is already taken
      */
     private bool IsValidMove()
     {
@@ -215,7 +240,7 @@ public class Tetris : MonoBehaviour
                 return false;
             }
 
-            if (_grid != null && _grid[x, y] != null)
+            if (Grid != null && Grid[x, y] != null)
             {
                 return false;
             }
@@ -225,7 +250,7 @@ public class Tetris : MonoBehaviour
     }
 
     /**
-     * 
+     * Loads Game Over Scene
      */
     private static void GameOver()
     {
