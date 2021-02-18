@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4653809039358144094}
   - component: {fileID: -2760102540281793602}
   - component: {fileID: 8967905460416888448}
+  - component: {fileID: -6438815383270509882}
   m_Layer: 0
   m_Name: O-block
   m_TagString: Untagged
@@ -62,6 +63,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallTime: 0.8
   rotation: {x: 0.5, y: 0.5, z: 0}
+--- !u!114 &-6438815383270509882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4653809039358144095}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90cb56561dd9cef49b690462fb559ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 7408885734248449779, guid: 260b553cbbc72a04b85720cda922c7a2,
+    type: 3}
 --- !u!1 &4653809039406272642
 GameObject:
   m_ObjectHideFlags: 0

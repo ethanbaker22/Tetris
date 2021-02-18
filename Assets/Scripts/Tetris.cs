@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 /**
  * @Author Ethan Baker - 986237
@@ -16,11 +16,12 @@ public class Tetris : MonoBehaviour
     // Width & Height of the game area
     private const int Width = 10;
     private const int Height = 25;
-
+    
     //Rotation x,y,z which can be changed in the editor
     [SerializeField] public Vector3 rotation;
 
     private SpawnShape _spawnShape;
+    private Score _score;
     // private UserInput _userInput;
 
     // Add shapes to grid array to know where they are located
@@ -30,15 +31,19 @@ public class Tetris : MonoBehaviour
     private void Start()
     {
         _spawnShape = FindObjectOfType<SpawnShape>();
-        // _userInput = FindObjectOfType<UserInput>();
+        _score = FindObjectOfType<Score>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         CheckUserInput();
+        // SetScore();
     }
 
+    /**
+     * 
+     */
     private void CheckUserInput()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
@@ -62,6 +67,7 @@ public class Tetris : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             transform.RotateAround(transform.TransformPoint(rotation), new Vector3(0, 0, 1), 90);
+            
             if (!IsValidMove())
             {
                 transform.RotateAround(transform.TransformPoint(rotation), new Vector3(0, 0, 1), -90);
@@ -72,6 +78,7 @@ public class Tetris : MonoBehaviour
         if (Time.time - _prevTime >
             ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) ? fallTime / 10 : fallTime))
         {
+            _score.AddToScore(1);
             transform.position += new Vector3(0, -1, 0);
             if (!IsValidMove())
             {
@@ -92,12 +99,16 @@ public class Tetris : MonoBehaviour
         }
     }
 
+    /**
+     * 
+     */
     private void DeleteLinesUponComplete()
     {
         for (var i = Height - 1; i >= 0; i--)
         {
             if (LineFull(i))
             {
+                _score.AddToScore(100);
                 DeleteFullLine(i);
                 MoveRowDown(i);
             }
@@ -105,6 +116,9 @@ public class Tetris : MonoBehaviour
     }
 
 
+    /**
+     * 
+     */
     private static bool LineFull(int i)
     {
         for (int j = 0; j < Width; j++)
@@ -118,6 +132,9 @@ public class Tetris : MonoBehaviour
         return true;
     }
 
+    /**
+     * 
+     */
     private static void DeleteFullLine(int i)
     {
         for (int j = 0; j < Width; j++)
