@@ -9,12 +9,21 @@ using UnityEngine.SceneManagement;
  */
 public class Menu : MonoBehaviour
 {
+    
+    private Score _score;
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        _score = FindObjectOfType<Score>();
+    }
 
     /**
-     * 
+     * Button is pressed, score is set to 0 and the Tetris scene is loaded
      */
     public void PlayAgain()
     {
+        Score.NewGame();
         SceneManager.LoadScene("Tetris");
     }
 

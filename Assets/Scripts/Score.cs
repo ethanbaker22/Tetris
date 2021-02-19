@@ -10,48 +10,50 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public Text scoreText;
+    public Text finalScoreText;
 
-    private static int _score;
+    private static int _score = 0;
     private static int _finalScore;
+
+    // private static FinalScore _final;
     
     // Update is called once per frame
     private void Update()
     {
         UpdateScore();
+        // SetFinalScore();
     }
     
     /**
-     * 
+     * Sets score to 0 when new game is started
      */
-    public void NewGame()
+    public static void NewGame()
     {
         _score = 0;
     }
     
     /**
-     * 
+     * Updates the score variable 
      */
     public void AddToScore(int addScore)
     {
         _score += addScore;
-        // print(addScore + "  " + _score);
         UpdateScore();
     }
 
     /**
-     * 
+     * Updates Score Text
      */
     private void UpdateScore()
     {
-        // print(_score);
         scoreText.text = "Score: " + _score;
     }
 
     /**
-     * 
+     * Sets the final score when called
      */
-    public void GetFinalScore(int final)
+    public void SetFinalScore()
     {
-        _finalScore = final;
+        finalScoreText.text = "Final Score: " + _score;
     }
 }

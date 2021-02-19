@@ -23,7 +23,7 @@ public class Tetris : MonoBehaviour
 
     // Other classes 
     private SpawnShape _spawnShape;
-    private Score _score;
+    private static Score _score;
 
     // Add shapes to grid array to know where they are located
     private static readonly Transform[,] Grid = new Transform[Width, Height];
@@ -289,6 +289,7 @@ public class Tetris : MonoBehaviour
      */
     private static void GameOver()
     {
+        _score.SetFinalScore();
         SceneManager.LoadScene("GameOver");
     }
 }

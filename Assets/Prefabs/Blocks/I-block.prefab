@@ -306,6 +306,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallTime: 0.8
   rotation: {x: 0, y: 0, z: 0}
+  oneLineScore: 40
+  twoLineScore: 100
+  threeLineScore: 300
+  fourLineScore: 1200
 --- !u!114 &3489692532144827374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,12 +317,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6553443240860666977}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90cb56561dd9cef49b690462fb559ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 7408885734248449779, guid: 260b553cbbc72a04b85720cda922c7a2,
+    type: 3}
+  finalScoreText: {fileID: 7408885734248449779, guid: 260b553cbbc72a04b85720cda922c7a2,
     type: 3}
 --- !u!1 &6553443240908878524
 GameObject:
