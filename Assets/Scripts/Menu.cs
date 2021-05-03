@@ -27,6 +27,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Tetris");
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     /**
      * 
      */
