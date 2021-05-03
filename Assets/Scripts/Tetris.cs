@@ -245,12 +245,12 @@ public class Tetris : MonoBehaviour
     }
 
     /**
-     * Method to change what Level the Player is on
+     * Method to change what Level the Player is on - once every 10 line clears
      */
     private void Levels()
     {
         currentLevel = linesCleared;
-        _score.AddToLevel(currentLevel);
+        _score.AddToLevel(currentLevel / 10);
         // print("Current Level: " + currentLevel / 10);
     }
 
