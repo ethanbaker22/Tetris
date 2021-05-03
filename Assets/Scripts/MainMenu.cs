@@ -28,9 +28,19 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void Leaderboard()
+    {
+        SceneManager.LoadScene("Leaderboard");
+    }
+
     public void ExitGame()
     {
         EditorApplication.isPlaying = false;
         Application.Quit();
+    }
+
+    public void BackMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

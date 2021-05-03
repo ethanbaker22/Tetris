@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 823451669898442722}
   - component: {fileID: 5652024153125752058}
   - component: {fileID: 2362202588188638524}
-  - component: {fileID: 7329831701855022961}
+  - component: {fileID: -7276834190562194012}
   m_Layer: 0
   m_Name: J-block
   m_TagString: Untagged
@@ -221,11 +221,11 @@ MonoBehaviour:
   start: {fileID: 8300000, guid: a8ec7c21e07f4a24a8953c42dc4617b8, type: 3}
   success: {fileID: 8300000, guid: 9cbf43cc0ef5350438fa8000a1dbedcd, type: 3}
   fallTime: 0.8
-  rotation: {x: 0, y: 0, z: 0}
   oneLineScore: 40
   twoLineScore: 100
   threeLineScore: 300
   fourLineScore: 1200
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!114 &2362202588188638524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +244,9 @@ MonoBehaviour:
     type: 3}
   levelText: {fileID: 6620759727110090921, guid: 90a7444e3388217479edb0d280928ff4,
     type: 3}
---- !u!82 &7329831701855022961
+  beatHighScore: {fileID: 7511671492722718363, guid: b38b3298805ec3b419d51e96f5f36334,
+    type: 3}
+--- !u!82 &-7276834190562194012
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,7 +257,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
