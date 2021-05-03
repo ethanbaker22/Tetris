@@ -31,11 +31,11 @@ public class Tetris : MonoBehaviour
     private const int Height = 25;
     private static int _currentLevel = 0;
     private static int _linesCleared = 0;
-    
+
     // Scoring depending on how many lines are cleared
     [SerializeField] public int oneLineScore, twoLineScore, threeLineScore, fourLineScore;
     private int _rowsCleared = 0;
-    
+
     // 
     private AudioSource _audioSource;
 
@@ -48,7 +48,7 @@ public class Tetris : MonoBehaviour
 
     // Add shapes to grid array to know where they are located
     private static readonly Transform[,] Grid = new Transform[Width, Height];
-    
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -105,6 +105,7 @@ public class Tetris : MonoBehaviour
             {
                 _audioSource.PlayOneShot(blockRotateSound);
             }
+
             // If not valid then move back
             if (!IsValidMove())
             {
@@ -139,23 +140,26 @@ public class Tetris : MonoBehaviour
         // Mouse click to make shape go to the bottom of the available grid
         else if (Time.time - _prevTime > ((Input.GetMouseButtonDown(0)) ? fallTime / 100 : fallTime))
         {
-            // Mouse Click instant down
-            while (IsValidMove())
+            if (!PauseMenu.IsPause)
             {
-                // Adds however many rows we went down
-                _score.AddToScore(1);
-                transform.position += new Vector3(0, -1, 0);
-            }
+                // Mouse Click instant down
+                while (IsValidMove())
+                {
+                    // Adds however many rows we went down
+                    _score.AddToScore(1);
+                    transform.position += new Vector3(0, -1, 0);
+                }
 
-            // If not valid move back
-            if (!IsValidMove())
-            {
-                _audioSource.PlayOneShot(fallSound);
-                transform.position -= new Vector3(0, -1, 0);
-                AddToGrid();
-                DeleteLinesUponComplete();
-                enabled = false;
-                _spawnShape.NewTetrisShape();
+                // If not valid move back
+                if (!IsValidMove())
+                {
+                    _audioSource.PlayOneShot(fallSound);
+                    transform.position -= new Vector3(0, -1, 0);
+                    AddToGrid();
+                    DeleteLinesUponComplete();
+                    enabled = false;
+                    _spawnShape.NewTetrisShape();
+                }
             }
         }
     }

@@ -127,14 +127,11 @@ public class Score : MonoBehaviour
             case 3:
                 beatHighScore.text = "You beat the #3 High Score!";
                 break;
-                print(beatHighScore);
             case 2:
                 beatHighScore.text = "You beat the #2 High Score!";
                 break;
-                print(beatHighScore);
             case 1:
                 beatHighScore.text = "You beat the #1 High Score!";
-                print(beatHighScore);
                 break;
         }
     }
