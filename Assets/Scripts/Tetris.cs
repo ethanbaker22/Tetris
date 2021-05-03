@@ -218,28 +218,28 @@ public class Tetris : MonoBehaviour
         switch (_rowsCleared)
         {
             case 1:
-                _score.AddToScore(oneLineScore);
+                _score.AddToScore(oneLineScore * (currentLevel + 1));
                 linesCleared += 1;
                 // _score.AddToLevel(linesCleared);
-                print("one line " + linesCleared);
+                print("one line " + linesCleared + " " +oneLineScore * (currentLevel + 1));
                 break;
             case 2:
-                _score.AddToScore(twoLineScore);
+                _score.AddToScore(twoLineScore * (currentLevel + 1));
                 linesCleared += 2;
                 // _score.AddToLevel(linesCleared);
-                print("two line " + linesCleared);
+                print("two line " + linesCleared + " " + twoLineScore * (currentLevel + 1));
                 break;
             case 3:
-                _score.AddToScore(threeLineScore);
+                _score.AddToScore(threeLineScore * (currentLevel + 1));
                 linesCleared += 3;
                 // _score.AddToLevel(linesCleared);
-                print("three line " + linesCleared);
+                print("three line " + linesCleared + " " + threeLineScore * (currentLevel + 1));
                 break;
             case 4:
-                _score.AddToScore(fourLineScore);
+                _score.AddToScore(fourLineScore * (currentLevel + 1));
                 linesCleared += 4;
                 // _score.AddToLevel(linesCleared);
-                print("four line " + linesCleared);
+                print("four line " + linesCleared + " " + fourLineScore * (currentLevel + 1));
                 break;
         }
     }
@@ -249,7 +249,7 @@ public class Tetris : MonoBehaviour
      */
     private void Levels()
     {
-        currentLevel = linesCleared / 10;
+        currentLevel = linesCleared;
         _score.AddToLevel(currentLevel);
         // print("Current Level: " + currentLevel / 10);
     }
