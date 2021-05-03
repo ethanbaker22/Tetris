@@ -377,7 +377,7 @@ MonoBehaviour:
   clearSound: {fileID: 8300000, guid: 0262fd24c0cc9f64399826c97dac4e0c, type: 3}
   fallSound: {fileID: 8300000, guid: 3626af4edda416145b3286d2428ef439, type: 3}
   gameOver: {fileID: 8300000, guid: 185de3a6e21dc964980bf6768b56620c, type: 3}
-  line: {fileID: 8300000, guid: 8c6c171313fce16468cb93f8082fb241, type: 3}
+  move: {fileID: 8300000, guid: 016f47060e8b2874eb167087e58281f4, type: 3}
   pause: {fileID: 8300000, guid: 9a8984f9ffb8d6c4c86eaf90399d1c38, type: 3}
   select: {fileID: 8300000, guid: db17821035d69074d81bb46e16fc4462, type: 3}
   start: {fileID: 8300000, guid: a8ec7c21e07f4a24a8953c42dc4617b8, type: 3}

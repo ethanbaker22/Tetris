@@ -16,6 +16,7 @@ public class Tetris : MonoBehaviour
     public AudioClip clearSound;
     public AudioClip fallSound;
     public AudioClip gameOver;
+    public AudioClip move;
     public AudioClip pause;
     public AudioClip select;
     public AudioClip start;
@@ -30,7 +31,11 @@ public class Tetris : MonoBehaviour
     private const int Height = 25;
     private static int _currentLevel = 0;
     private static int _linesCleared = 0;
-
+    
+    // Scoring depending on how many lines are cleared
+    [SerializeField] public int oneLineScore, twoLineScore, threeLineScore, fourLineScore;
+    private int _rowsCleared = 0;
+    
     // 
     private AudioSource _audioSource;
 
@@ -43,11 +48,7 @@ public class Tetris : MonoBehaviour
 
     // Add shapes to grid array to know where they are located
     private static readonly Transform[,] Grid = new Transform[Width, Height];
-
-    // Scoring depending on how many lines are cleared
-    [SerializeField] public int oneLineScore, twoLineScore, threeLineScore, fourLineScore;
-    private int _rowsCleared = 0;
-
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -99,11 +100,11 @@ public class Tetris : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             transform.RotateAround(transform.TransformPoint(rotation), new Vector3(0, 0, 1), 90);
+
             if (IsValidMove())
             {
                 _audioSource.PlayOneShot(blockRotateSound);
             }
-
             // If not valid then move back
             if (!IsValidMove())
             {
