@@ -10,7 +10,7 @@ public class SpawnShape : MonoBehaviour
 {
     // public GameObject[] tetrisShape;
 
-    public GameObject tetrisShape, nextShape;
+    private GameObject _tetrisShape, _nextShape;
 
     private bool _gameStarted = false;
 
@@ -30,24 +30,27 @@ public class SpawnShape : MonoBehaviour
         {
             _gameStarted = true;
 
-            tetrisShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
+            _tetrisShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
                 new Vector2(5.0f, 23.0f), Quaternion.identity);
-            nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
+            _nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
                 _nextShapePosition, Quaternion.identity);
-            nextShape.GetComponent<Tetris>().enabled = false;
+            _nextShape.GetComponent<Tetris>().enabled = false;
         }
         else
         {
-            nextShape.transform.localPosition = new Vector2(5.0f, 23.0f);
-            tetrisShape = nextShape;
-            tetrisShape.GetComponent<Tetris>().enabled = true;
-            
-            nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
+            _nextShape.transform.localPosition = new Vector2(5.0f, 23.0f);
+            _tetrisShape = _nextShape;
+            _tetrisShape.GetComponent<Tetris>().enabled = true;
+
+            _nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
                 _nextShapePosition, Quaternion.identity);
-            nextShape.GetComponent<Tetris>().enabled = false;
+            _nextShape.GetComponent<Tetris>().enabled = false;
         }
     }
 
+    /**
+     * 
+     */
     private static string GetRandomShape()
     {
         var randomShape = Random.Range(1, 8);

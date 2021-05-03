@@ -11,6 +11,16 @@ using UnityEngine.UI;
  */
 public class Tetris : MonoBehaviour
 {
+    // Audio clips for the game
+    public AudioClip blockRotateSound;
+    public AudioClip clearSound;
+    public AudioClip fallSound;
+    public AudioClip gameOver;
+    public AudioClip pause;
+    public AudioClip select;
+    public AudioClip start;
+    public AudioClip success;
+
     //
     private float _prevTime;
     [SerializeField] public float fallTime;
@@ -18,9 +28,12 @@ public class Tetris : MonoBehaviour
     // Width & Height of the game area
     private const int Width = 10;
     private const int Height = 25;
-    private static int currentLevel = 0;
-    private static int linesCleared = 0;
-    
+    private static int _currentLevel = 0;
+    private static int _linesCleared = 0;
+
+    // 
+    private AudioSource _audioSource;
+
     // Rotation x,y,z which can be changed in the editor
     [SerializeField] public Vector3 rotation;
 
@@ -40,6 +53,7 @@ public class Tetris : MonoBehaviour
     {
         _spawnShape = FindObjectOfType<SpawnShape>();
         _score = FindObjectOfType<Score>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -85,6 +99,10 @@ public class Tetris : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             transform.RotateAround(transform.TransformPoint(rotation), new Vector3(0, 0, 1), 90);
+            if (IsValidMove())
+            {
+                _audioSource.PlayOneShot(blockRotateSound);
+            }
 
             // If not valid then move back
             if (!IsValidMove())
@@ -131,6 +149,7 @@ public class Tetris : MonoBehaviour
             // If not valid move back
             if (!IsValidMove())
             {
+                _audioSource.PlayOneShot(fallSound);
                 transform.position -= new Vector3(0, -1, 0);
                 AddToGrid();
                 DeleteLinesUponComplete();
@@ -173,6 +192,7 @@ public class Tetris : MonoBehaviour
             }
         }
 
+        _audioSource.PlayOneShot(clearSound);
         _rowsCleared++;
         return true;
     }
@@ -218,28 +238,28 @@ public class Tetris : MonoBehaviour
         switch (_rowsCleared)
         {
             case 1:
-                _score.AddToScore(oneLineScore * (currentLevel + 1));
-                linesCleared += 1;
+                _score.AddToScore(oneLineScore * (_currentLevel + 1));
+                _linesCleared += 1;
                 // _score.AddToLevel(linesCleared);
-                print("one line " + linesCleared + " " +oneLineScore * (currentLevel + 1));
+                print("one line " + _linesCleared + " " + oneLineScore * (_currentLevel + 1));
                 break;
             case 2:
-                _score.AddToScore(twoLineScore * (currentLevel + 1));
-                linesCleared += 2;
+                _score.AddToScore(twoLineScore * (_currentLevel + 1));
+                _linesCleared += 2;
                 // _score.AddToLevel(linesCleared);
-                print("two line " + linesCleared + " " + twoLineScore * (currentLevel + 1));
+                print("two line " + _linesCleared + " " + twoLineScore * (_currentLevel + 1));
                 break;
             case 3:
-                _score.AddToScore(threeLineScore * (currentLevel + 1));
-                linesCleared += 3;
+                _score.AddToScore(threeLineScore * (_currentLevel + 1));
+                _linesCleared += 3;
                 // _score.AddToLevel(linesCleared);
-                print("three line " + linesCleared + " " + threeLineScore * (currentLevel + 1));
+                print("three line " + _linesCleared + " " + threeLineScore * (_currentLevel + 1));
                 break;
             case 4:
-                _score.AddToScore(fourLineScore * (currentLevel + 1));
-                linesCleared += 4;
+                _score.AddToScore(fourLineScore * (_currentLevel + 1));
+                _linesCleared += 4;
                 // _score.AddToLevel(linesCleared);
-                print("four line " + linesCleared + " " + fourLineScore * (currentLevel + 1));
+                print("four line " + _linesCleared + " " + fourLineScore * (_currentLevel + 1));
                 break;
         }
     }
@@ -249,8 +269,8 @@ public class Tetris : MonoBehaviour
      */
     private void Levels()
     {
-        currentLevel = linesCleared;
-        _score.AddToLevel(currentLevel / 10);
+        _currentLevel = _linesCleared / 10;
+        _score.AddToLevel(_currentLevel);
         // print("Current Level: " + currentLevel / 10);
     }
 
@@ -259,7 +279,7 @@ public class Tetris : MonoBehaviour
      */
     private void FallSpeed()
     {
-        fallTime = 0.8f - currentLevel * 0.1f;
+        fallTime = 0.8f - _currentLevel * 0.1f;
         // print("Fall Time: " + fallTime);
     }
 
@@ -283,7 +303,7 @@ public class Tetris : MonoBehaviour
     /**
      * Checks to see if the grid is full. If so - Game Over
      */
-    private static void CheckIfGameOver()
+    private void CheckIfGameOver()
     {
         for (var j = 0; j < Width; j++)
         {
