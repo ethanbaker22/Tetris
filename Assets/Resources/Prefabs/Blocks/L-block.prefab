@@ -151,6 +151,8 @@ MonoBehaviour:
     type: 3}
   finalScoreText: {fileID: 4399234222387732683, guid: bff6f42aa46609345877f061b2960842,
     type: 3}
+  levelText: {fileID: 6620759727110090921, guid: 90a7444e3388217479edb0d280928ff4,
+    type: 3}
 --- !u!1 &3513947167240535742
 GameObject:
   m_ObjectHideFlags: 0

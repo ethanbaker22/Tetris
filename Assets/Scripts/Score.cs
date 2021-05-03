@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 /**
@@ -11,16 +12,19 @@ public class Score : MonoBehaviour
 {
     public Text scoreText;
     public Text finalScoreText;
+    public Text levelText;
 
     private static int _score = 0;
     private static int _finalScore;
+    private static int _level = 0;
 
     // private static FinalScore _final;
-    
+
     // Update is called once per frame
     private void Update()
     {
         UpdateScore();
+        UpdateLevel();
         // SetFinalScore();
     }
     
@@ -30,6 +34,7 @@ public class Score : MonoBehaviour
     public static void NewGame()
     {
         _score = 0;
+        _level = 0;
     }
     
     /**
@@ -55,5 +60,22 @@ public class Score : MonoBehaviour
     public void SetFinalScore()
     {
         finalScoreText.text = "Final Score: " + _score;
+    }
+
+    /**
+     * 
+     */
+    public void AddToLevel(int level)
+    {
+        _level = level;
+        UpdateLevel();
+    }
+
+    /**
+     * 
+     */
+    private void UpdateLevel()
+    {
+        levelText.text = "Level: " + _level;
     }
 }

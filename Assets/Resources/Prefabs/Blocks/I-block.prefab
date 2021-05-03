@@ -311,7 +311,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 7408885734248449779, guid: 260b553cbbc72a04b85720cda922c7a2,
     type: 3}
-  finalScoreText: {fileID: 7408885734248449779, guid: 260b553cbbc72a04b85720cda922c7a2,
+  finalScoreText: {fileID: 4399234222387732683, guid: bff6f42aa46609345877f061b2960842,
+    type: 3}
+  levelText: {fileID: 6620759727110090921, guid: 90a7444e3388217479edb0d280928ff4,
     type: 3}
 --- !u!1 &6553443240908878524
 GameObject:

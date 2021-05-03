@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /**
  * Tetris.cs
@@ -17,8 +18,10 @@ public class Tetris : MonoBehaviour
     // Width & Height of the game area
     private const int Width = 10;
     private const int Height = 25;
-
-    //Rotation x,y,z which can be changed in the editor
+    private static int currentLevel = 0;
+    private static int linesCleared = 0;
+    
+    // Rotation x,y,z which can be changed in the editor
     [SerializeField] public Vector3 rotation;
 
     // Other classes 
@@ -29,7 +32,7 @@ public class Tetris : MonoBehaviour
     private static readonly Transform[,] Grid = new Transform[Width, Height];
 
     // Scoring depending on how many lines are cleared
-    public int oneLineScore = 40, twoLineScore = 100, threeLineScore = 300, fourLineScore = 1200;
+    [SerializeField] public int oneLineScore, twoLineScore, threeLineScore, fourLineScore;
     private int _rowsCleared = 0;
 
     // Start is called before the first frame update
@@ -44,6 +47,9 @@ public class Tetris : MonoBehaviour
     {
         CheckUserInput();
         MultiRowClearing();
+        Levels();
+        FallSpeed();
+        // print(_rowsCleared);
     }
 
     /**
@@ -62,8 +68,9 @@ public class Tetris : MonoBehaviour
                 transform.position -= new Vector3(-1, 0, 0);
             }
         }
+
         // Press right arrow to move one block right
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             transform.position += new Vector3(1, 0, 0);
 
@@ -73,8 +80,9 @@ public class Tetris : MonoBehaviour
                 transform.position -= new Vector3(1, 0, 0);
             }
         }
+
         // Press up to rotate the shape 90 degrees
-        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             transform.RotateAround(transform.TransformPoint(rotation), new Vector3(0, 0, 1), 90);
 
@@ -211,21 +219,48 @@ public class Tetris : MonoBehaviour
         {
             case 1:
                 _score.AddToScore(oneLineScore);
-                print("one line");
+                linesCleared += 1;
+                // _score.AddToLevel(linesCleared);
+                print("one line " + linesCleared);
                 break;
             case 2:
                 _score.AddToScore(twoLineScore);
-                print("two line");
+                linesCleared += 2;
+                // _score.AddToLevel(linesCleared);
+                print("two line " + linesCleared);
                 break;
             case 3:
                 _score.AddToScore(threeLineScore);
-                print("three line");
+                linesCleared += 3;
+                // _score.AddToLevel(linesCleared);
+                print("three line " + linesCleared);
                 break;
             case 4:
                 _score.AddToScore(fourLineScore);
-                print("four line");
+                linesCleared += 4;
+                // _score.AddToLevel(linesCleared);
+                print("four line " + linesCleared);
                 break;
         }
+    }
+
+    /**
+     * Method to change what Level the Player is on
+     */
+    private void Levels()
+    {
+        currentLevel = linesCleared / 10;
+        _score.AddToLevel(currentLevel);
+        // print("Current Level: " + currentLevel / 10);
+    }
+
+    /**
+     * Adjust the falling speed of the blocks
+     */
+    private void FallSpeed()
+    {
+        fallTime = 0.8f - currentLevel * 0.1f;
+        // print("Fall Time: " + fallTime);
     }
 
     /**

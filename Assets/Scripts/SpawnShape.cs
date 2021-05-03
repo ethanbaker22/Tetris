@@ -14,7 +14,7 @@ public class SpawnShape : MonoBehaviour
 
     private bool _gameStarted = false;
 
-    private readonly Vector3 _nextShapePosition = new Vector3(-7f, 20f, 0f);
+    private readonly Vector3 _nextShapePosition = new Vector3(-6f, 20f, 0f);
 
     public void Start()
     {
