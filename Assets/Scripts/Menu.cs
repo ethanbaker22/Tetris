@@ -52,6 +52,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void Profile()
+    {
+        SceneManager.LoadScene("Profile");
+    }
+
     /**
      * 
      */

@@ -14,6 +14,7 @@ public class Profiles : MonoBehaviour
     private string _playerName1, _playerName2, _playerName3, _saveName;
     public Text nameInput, nameOutput1, nameOutput2, nameOutput3;
 
+    private SelectProfile _selectProfile;
     private void Update()
     {
         switch (selectedName)
@@ -70,7 +71,8 @@ public class Profiles : MonoBehaviour
         {
             
             case 0:
-            {
+            { 
+                PlayerPrefs.SetString("profile", "name1");
                 //If not entering name, name stays the same
                 if (nameInput.text != "")
                 {
@@ -81,6 +83,7 @@ public class Profiles : MonoBehaviour
             }
             case 1:
             {
+                PlayerPrefs.SetString("profile", "name2");
                 //If not entering name, name stays the same
                 if (nameInput.text != "")
                 {
@@ -91,6 +94,7 @@ public class Profiles : MonoBehaviour
             }
             case 2:
             {
+                PlayerPrefs.SetString("profile", "name3");
                 //If not entering name, name stays the same
                 if (nameInput.text != "")
                 {
