@@ -407,7 +407,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1448134284}
+      - m_Target: {fileID: 1663485029}
         m_MethodName: Leaderboard
         m_Mode: 1
         m_Arguments:
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 966b0d11f5308b5418e322236460774d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 966b0d11f5308b5418e322236460774d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -613,32 +613,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105846220}
   m_CullTransparentMesh: 0
---- !u!1 &1448134283 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5515882695690731148, guid: ab71550a3d2cc204faff2cd3307c52ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 5515882694212649170}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1448134284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448134283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29ca2e5d2a73de641bc3b7d8f1f17c84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highScoreText: {fileID: 2447586033312016446, guid: 36867937de6a64c458cb1679ee0d0ede,
-    type: 3}
-  secondHighScoreText: {fileID: 3717596012268304808, guid: 8e7dd41c6d905e048b52e312058486cc,
-    type: 3}
-  thirdHighScoreText: {fileID: 1417171329526996057, guid: 6c0ed0187a9932447a439098b23434df,
-    type: 3}
-  fourthHighScoreText: {fileID: 7197416930390606892, guid: 3fd95115d6e9087498d9f71dd5d4958c,
-    type: 3}
 --- !u!1 &1467524372
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1448134284}
+      - m_Target: {fileID: 1663485029}
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
@@ -888,7 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 966b0d11f5308b5418e322236460774d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -1001,7 +975,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1448134284}
+      - m_Target: {fileID: 1663485029}
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
@@ -1090,6 +1064,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1663485029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7679066451783421803, guid: ab71550a3d2cc204faff2cd3307c52ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 5515882694212649170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ca2e5d2a73de641bc3b7d8f1f17c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1676842964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,7 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 966b0d11f5308b5418e322236460774d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -1408,7 +1394,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1448134284}
+      - m_Target: {fileID: 1663485029}
         m_MethodName: Settings
         m_Mode: 1
         m_Arguments:
