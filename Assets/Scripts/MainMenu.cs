@@ -23,10 +23,7 @@
 //         SceneManager.LoadScene("Tetris");
 //     }
 //
-//     public void Settings()
-//     {
-//         
-//     }
+//
 //
 //     public void Leaderboard()
 //     {

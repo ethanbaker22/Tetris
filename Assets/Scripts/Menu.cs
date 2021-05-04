@@ -52,7 +52,7 @@ public class Menu : MonoBehaviour
 
     public void Settings()
     {
-        
+        SceneManager.LoadScene("Settings");
     }
 
     public void Leaderboard()
