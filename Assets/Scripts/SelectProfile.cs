@@ -7,8 +7,8 @@ public class SelectProfile : MonoBehaviour
 {
     public GameObject[] profile;
     public Text nameText;
+   
     private int _profilePic;
-
     private string _playerName;
     // Start is called before the first frame update
     void Start()
@@ -29,19 +29,6 @@ public class SelectProfile : MonoBehaviour
         {
             profile[2].SetActive(true);
         }
-        
-    }
-
-    // public void SetProfile(string name)
-    // {
-    //     playerName = name;
-    //     print("access");
-    //     
-    // }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
