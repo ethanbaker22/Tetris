@@ -15,6 +15,7 @@ public class SelectProfile : MonoBehaviour
     {
         _profilePic = PlayerPrefs.GetInt("playerProfile");
         _playerName = PlayerPrefs.GetString("profile");
+        PlayerPrefs.SetString("LeaderboardName", _playerName);
         nameText.text = PlayerPrefs.GetString(_playerName);
 
         if (_profilePic == 0)

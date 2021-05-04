@@ -1685,6 +1685,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4456315540967069993, guid: b38b3298805ec3b419d51e96f5f36334,
         type: 3}
+      propertyPath: num1
+      value: 
+      objectReference: {fileID: 1990367445162510845, guid: e6d58ac41e3814a4781a7b251a747a56,
+        type: 3}
+    - target: {fileID: 4456315540967069993, guid: b38b3298805ec3b419d51e96f5f36334,
+        type: 3}
+      propertyPath: num2
+      value: 
+      objectReference: {fileID: 3036132282546520902, guid: ca13717101d928948bc65babafeaa4fc,
+        type: 3}
+    - target: {fileID: 4456315540967069993, guid: b38b3298805ec3b419d51e96f5f36334,
+        type: 3}
+      propertyPath: num3
+      value: 
+      objectReference: {fileID: 6158679577065632396, guid: ac23c6bc88bb4ca4d9e4d43c3d27e674,
+        type: 3}
+    - target: {fileID: 4456315540967069993, guid: b38b3298805ec3b419d51e96f5f36334,
+        type: 3}
+      propertyPath: num4
+      value: 
+      objectReference: {fileID: 5062419534130280909, guid: 03a79ffb6e46f674499d6b210309982b,
+        type: 3}
+    - target: {fileID: 4456315540967069993, guid: b38b3298805ec3b419d51e96f5f36334,
+        type: 3}
       propertyPath: beatHighScore
       value: 
       objectReference: {fileID: 7511671492722718363, guid: b38b3298805ec3b419d51e96f5f36334,

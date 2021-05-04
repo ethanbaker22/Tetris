@@ -22,14 +22,17 @@ public class Profiles : MonoBehaviour
             case 0:
                 _playerName1 = PlayerPrefs.GetString("name1", "Default");
                 nameOutput1.text = _playerName1;
+                PlayerPrefs.SetString("Leaderboardname", _playerName1);
                 break;
             case 1:
                 _playerName2 = PlayerPrefs.GetString("name2", "Default");
                 nameOutput2.text = _playerName2;
+                PlayerPrefs.SetString("Leaderboardname", _playerName2);
                 break;
             case 2:
                 _playerName3 = PlayerPrefs.GetString("name3", "Default");
                 nameOutput3.text = _playerName3;
+                PlayerPrefs.SetString("Leaderboardname", _playerName3);
                 break;
         }
     }
@@ -72,12 +75,14 @@ public class Profiles : MonoBehaviour
             
             case 0:
             { 
+                // PlayerPrefs.SetString("LeaderboardName", nameOutput1.text);
                 PlayerPrefs.SetString("profile", "name1");
                 //If not entering name, name stays the same
                 if (nameInput.text != "")
                 {
                     _saveName = nameInput.text;
                     PlayerPrefs.SetString("name1", _saveName);
+                    
                 }
                 break;
             }
@@ -100,7 +105,9 @@ public class Profiles : MonoBehaviour
                 {
                     _saveName = nameInput.text;
                     PlayerPrefs.SetString("name3", _saveName);
+                    
                 }
+                // PlayerPrefs.SetString("LeaderboardName", nameOutput3.text);
                 break;
             }
         }
