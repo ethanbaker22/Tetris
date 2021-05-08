@@ -55,6 +55,7 @@ public class Tetris : MonoBehaviour
         _spawnShape = FindObjectOfType<SpawnShape>();
         _score = FindObjectOfType<Score>();
         _audioSource = GetComponent<AudioSource>();
+        // GhostShape();
     }
 
     // Update is called once per frame
@@ -64,6 +65,7 @@ public class Tetris : MonoBehaviour
         MultiRowClearing();
         Levels();
         FallSpeed();
+        // GhostShape();
         // print(_rowsCleared);
     }
 
@@ -343,6 +345,15 @@ public class Tetris : MonoBehaviour
 
         return true;
     }
+    
+    // private void GhostShape()
+    // {
+    //     _spawnShape.GhostShape();
+    //     while (IsValidMove())
+    //     {
+    //         transform.position += new Vector3(0, -1, 0);
+    //     }
+    // }
 
     /**
      * Loads Game Over Scene

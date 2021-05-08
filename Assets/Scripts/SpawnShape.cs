@@ -10,7 +10,9 @@ public class SpawnShape : MonoBehaviour
 {
     // public GameObject[] tetrisShape;
 
-    private GameObject _tetrisShape, _nextShape;
+    private GameObject _tetrisShape, _nextShape, _ghostShape;
+
+    private static string _currentShape;
 
     private bool _gameStarted = false;
 
@@ -28,6 +30,7 @@ public class SpawnShape : MonoBehaviour
     {
         if (!_gameStarted)
         {
+            // GhostShape();
             _gameStarted = true;
 
             _tetrisShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
@@ -82,6 +85,26 @@ public class SpawnShape : MonoBehaviour
                 break;
         }
 
+        SetCurrentShape(randomShapeName);
         return randomShapeName;
+    }
+
+    private static void SetCurrentShape(string shape)
+    {
+        _currentShape = shape;
+    }
+
+    private static string GetCurrentShape()
+    {
+        return _currentShape;
+    }
+
+    public void GhostShape()
+    {
+        _ghostShape = (GameObject) Instantiate(_nextShape,   
+            new Vector2(5f, 20f), Quaternion.identity);
+        // Destroy(_ghostShape.GetComponent<);
+        _ghostShape = _tetrisShape;
+        _ghostShape.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.25f);
     }
 }

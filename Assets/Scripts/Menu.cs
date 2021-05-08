@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -13,10 +14,9 @@ public class Menu : MonoBehaviour
 {
     
     private Score _score;
-    public Text highScoreText;
-    public Text secondHighScoreText;
-    public Text thirdHighScoreText;
-    public Text fourthHighScoreText;
+    public Text highScoreText, secondHighScoreText, thirdHighScoreText ,fourthHighScoreText;
+    public Button play, tutorial, back;
+    public GameObject mainMenu;
 
     // Start is called before the first frame update
     private void Start()
@@ -26,6 +26,16 @@ public class Menu : MonoBehaviour
         secondHighScoreText.text = PlayerPrefs.GetInt("Score2").ToString();
         thirdHighScoreText.text = PlayerPrefs.GetInt("Score3").ToString();
         fourthHighScoreText.text = PlayerPrefs.GetInt("Score4").ToString();
+    }
+
+    public void Play()
+    {
+        mainMenu.SetActive(false);
+        play.gameObject.SetActive(true);
+        tutorial.gameObject.SetActive(true);
+        back.gameObject.SetActive(true);
+        // play.GetComponent<Text>().enabled = true;
+        // tutorial.GetComponent<Text>().enabled = true;
     }
 
     /**
@@ -39,6 +49,10 @@ public class Menu : MonoBehaviour
 
     public void MainMenu()
     {
+        mainMenu.SetActive(true);
+        play.gameObject.SetActive(false);
+        tutorial.gameObject.SetActive(false);
+        back.gameObject.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
 
