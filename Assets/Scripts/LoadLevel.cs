@@ -7,21 +7,19 @@ using UnityEngine.UI;
 public class LoadLevel : MonoBehaviour
 {
     public Slider loadingSlider;
+
     public Text loadingText, loadedText;
     // public GameObject profile;
-    
+
     public void Loader(int scene)
     {
         StartCoroutine(LoadAsynchronously(scene));
     }
-    
+
     public void AnyKeyLoader(int scene)
     {
-        if (Input.anyKeyDown)
-        {
-            StartCoroutine(LoadAsynchronously(scene));
-        }
-        
+        loadingSlider.gameObject.SetActive(true);
+        StartCoroutine(LoadAsynchronously(scene));
     }
 
     IEnumerator LoadAsynchronously(int scene)
@@ -31,6 +29,7 @@ public class LoadLevel : MonoBehaviour
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             loadingSlider.value = progress;
+            loadingText.text = progress * 100f + "%";
             yield return null;
         }
     }

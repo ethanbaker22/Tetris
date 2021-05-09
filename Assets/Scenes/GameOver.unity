@@ -428,7 +428,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 964002132}
-        m_MethodName: MainMenu
+        m_MethodName: BackMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -602,6 +602,10 @@ MonoBehaviour:
     type: 3}
   fourthHighScoreText: {fileID: 7197416930390606892, guid: 3fd95115d6e9087498d9f71dd5d4958c,
     type: 3}
+  play: {fileID: 0}
+  tutorial: {fileID: 0}
+  back: {fileID: 0}
+  mainMenu: {fileID: 0}
 --- !u!4 &964002133
 Transform:
   m_ObjectHideFlags: 0
