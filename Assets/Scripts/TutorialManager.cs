@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
@@ -10,8 +11,7 @@ public class TutorialManager : MonoBehaviour
     public float waitTime = 3f;
 
     public GameObject initalShape, secondShape;
-    public Slider loadingSlider;
-    public Text loadingText;
+    
 
     void Update()
     {
@@ -68,9 +68,9 @@ public class TutorialManager : MonoBehaviour
         }
         else if (_stepsIndex == 4)
         {
-            float loading = Mathf.Clamp01(waitTime);
-            loadingSlider.value = loading;
-            loadingText.text = loading * 100f + "%";
+            // float loading = Mathf.Clamp01(waitTime);
+            // loadingSlider.value = loading;
+            // loadingText.text = loading * 100f + "%";
             if (waitTime <= 0)
             {
                 _stepsIndex++;
@@ -82,4 +82,6 @@ public class TutorialManager : MonoBehaviour
             }
         }
     }
+
+
 }
