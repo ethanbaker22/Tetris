@@ -112,4 +112,38 @@ public class Menu : MonoBehaviour
         StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void Acknowledgements()
+    {
+        StartCoroutine(LoadingLevel());
+        SceneManager.LoadScene("Acknowledgements");
+    }
+
+    public void OpenURL(int urlNum)
+    {
+        switch (urlNum)
+        {
+            case 1:
+                Application.OpenURL("https://www.youtube.com/watch?v=NmCCQxVBfyM");
+                break;
+            case 2:
+                Application.OpenURL("https://www.youtube.com/watch?v=Xm9O2iJLWxY");
+                break;
+            case 3:
+                Application.OpenURL("https://www.findsounds.com/ISAPI/search.dll?keywords=tetris");
+                break;
+            case 4:
+                Application.OpenURL("http://prattatatat.com/blog-full/2015/1/5/2015-already");
+                break;
+            case 5:
+                Application.OpenURL("https://wallpaperaccess.com/tetris");
+                break;
+            case 6:
+                Application.OpenURL("http://pixelartmaker.com/gallery");
+                break;
+            case 7:
+                Application.OpenURL("https://github.com/ethanbaker22/Tetris");
+                break;
+        }
+    }
 }
