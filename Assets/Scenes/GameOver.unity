@@ -1609,6 +1609,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HighScore
       objectReference: {fileID: 0}
+    - target: {fileID: 1360695888688501167, guid: 9ae9fd5308787764b9239506ba5f5203,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6588132224307354900, guid: 9ae9fd5308787764b9239506ba5f5203,
         type: 3}
       propertyPath: m_Pivot.x

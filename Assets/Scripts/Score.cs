@@ -92,6 +92,7 @@ public class Score : MonoBehaviour
     {
         finalScoreText.text = "Final Score: " + _score;
         UpdateHighScore();
+        SetPlayersHighestScore();
     }
     
     /**
@@ -179,6 +180,18 @@ public class Score : MonoBehaviour
                 _beatHighScore = "";
                 beatHighScore.text = _beatHighScore;
                 break;
+        }
+    }
+
+    private void SetPlayersHighestScore()
+    {
+        int playersScore = PlayerPrefs.GetInt(_playerName);
+        print("PLAYERS NAME " + _playerName);
+        if (playersScore < _score)
+        {
+            PlayerPrefs.SetInt(_playerName, _score);
+            print("Higherscore " + playersScore);
+            print("GetHigherScore" + PlayerPrefs.GetInt(_playerName));
         }
     }
 
