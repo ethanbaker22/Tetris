@@ -571,7 +571,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#4'
+  m_Text: 'N/A
+
+'
 --- !u!222 &499951192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -630,7 +632,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#1 '
+  m_Text: N/A
 --- !u!222 &516455148
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -944,6 +946,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949418539261322110, guid: e2ee0c5f3c913a3488337ce68aece499,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4949418539261322111, guid: e2ee0c5f3c913a3488337ce68aece499,
         type: 3}
@@ -1321,7 +1328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#2'
+  m_Text: N/A
 --- !u!222 &1331875684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1605,7 +1612,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#3'
+  m_Text: N/A
 --- !u!222 &1869926666
 CanvasRenderer:
   m_ObjectHideFlags: 0

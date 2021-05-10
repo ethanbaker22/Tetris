@@ -247,6 +247,8 @@ MonoBehaviour:
     type: 3}
   beatHighScore: {fileID: 1360695888688501167, guid: 9ae9fd5308787764b9239506ba5f5203,
     type: 3}
+  linesCleared: {fileID: 3187535484915188750, guid: 79004c4291d53834fa80620250cc3be5,
+    type: 3}
 --- !u!82 &-7276834190562194012
 AudioSource:
   m_ObjectHideFlags: 0

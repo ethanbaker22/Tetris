@@ -247,6 +247,7 @@ public class Tetris : MonoBehaviour
             case 1:
                 _score.AddToScore(oneLineScore * (_currentLevel + 1));
                 _linesCleared += 1;
+                _score.SetClearedLines(1);
                 // _score.AddToLevel(linesCleared);
                 print("one line " + _linesCleared + " " + oneLineScore * (_currentLevel + 1));
                 break;
@@ -254,17 +255,20 @@ public class Tetris : MonoBehaviour
                 _score.AddToScore(twoLineScore * (_currentLevel + 1));
                 _linesCleared += 2;
                 // _score.AddToLevel(linesCleared);
+                _score.SetClearedLines(2);
                 print("two line " + _linesCleared + " " + twoLineScore * (_currentLevel + 1));
                 break;
             case 3:
                 _score.AddToScore(threeLineScore * (_currentLevel + 1));
                 _linesCleared += 3;
+                _score.SetClearedLines(3);
                 // _score.AddToLevel(linesCleared);
                 print("three line " + _linesCleared + " " + threeLineScore * (_currentLevel + 1));
                 break;
             case 4:
                 _score.AddToScore(fourLineScore * (_currentLevel + 1));
                 _linesCleared += 4;
+                _score.SetClearedLines(4);
                 // _score.AddToLevel(linesCleared);
                 print("four line " + _linesCleared + " " + fourLineScore * (_currentLevel + 1));
                 break;

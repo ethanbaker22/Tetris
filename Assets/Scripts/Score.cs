@@ -14,10 +14,12 @@ public class Score : MonoBehaviour
     public Text finalScoreText;
     public Text levelText;
     public Text beatHighScore;
+    public Text linesCleared;
 
     private static int _score = 0;
     private static int _finalScore;
     private static int _level = 0;
+    private static int _linesCleared = 0;
     private int _fileHighScore, _secondHighScore ,_thirdHighScore, _fourthHighScore;
     private string _nameHighScore, _nameSecondHighScore, _nameThirdHighScore, _nameFourthHighScore, _playerName, _beatHighScore;
 
@@ -46,6 +48,7 @@ public class Score : MonoBehaviour
         // print("Score update player name " +  PlayerPrefs.GetString("LeaderboardName"));
         UpdateScore();
         UpdateLevel();
+        UpdateLines();
         _fileHighScore = PlayerPrefs.GetInt("Score1");
         _secondHighScore = PlayerPrefs.GetInt("Score2");
         _thirdHighScore = PlayerPrefs.GetInt("Score3");
@@ -81,7 +84,6 @@ public class Score : MonoBehaviour
      */
     private void UpdateScore()
     {
-        
         scoreText.text = "Score: " + _score;
     }
     
@@ -159,21 +161,25 @@ public class Score : MonoBehaviour
         switch (value)
         {
             case 4:
-                _beatHighScore += "You beat the #4 High Score!";
+                _beatHighScore = "You beat the #4 High Score!";
                 beatHighScore.text = _beatHighScore;
                 print(beatHighScore);
+                print("4");
                 break;
             case 3:
-                _beatHighScore += "You beat the #3 High Score!";
+                _beatHighScore = "You beat the #3 High Score!";
                 beatHighScore.text = _beatHighScore;
+                print("3");
                 break;
             case 2:
-                _beatHighScore += "You beat the #2 High Score!";
+                _beatHighScore = "You beat the #2 High Score!";
                 beatHighScore.text = _beatHighScore;
+                print("2");
                 break;
             case 1:
-                _beatHighScore += "You beat the #1 High Score!";
+                _beatHighScore = "You beat the #1 High Score!";
                 beatHighScore.text = _beatHighScore;
+                print("1");
                 break;
             default:
                 print("default");
@@ -210,5 +216,22 @@ public class Score : MonoBehaviour
     private void UpdateLevel()
     {
         levelText.text = "Level: " + _level;
+    }
+    
+    /**
+     * 
+     */
+    public void SetClearedLines(int numOfLines)
+    {
+        _linesCleared += numOfLines;
+        UpdateLines();
+    }
+
+    /**
+     * 
+     */
+    private void UpdateLines()
+    {
+        linesCleared.text = "Lines: " + _linesCleared;
     }
 }
