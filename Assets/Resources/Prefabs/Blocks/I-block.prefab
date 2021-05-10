@@ -322,11 +322,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 7408885734248449779, guid: 260b553cbbc72a04b85720cda922c7a2,
     type: 3}
-  finalScoreText: {fileID: 2636002278305735025, guid: d60d0e156779d1742a8ec2ff7d6c28ab,
+  finalScoreText: {fileID: 6996654468325922711, guid: d60d0e156779d1742a8ec2ff7d6c28ab,
     type: 3}
   levelText: {fileID: 6620759727110090921, guid: 90a7444e3388217479edb0d280928ff4,
     type: 3}
-  beatHighScore: {fileID: 3561294303569357144, guid: 9ae9fd5308787764b9239506ba5f5203,
+  beatHighScore: {fileID: 1360695888688501167, guid: 9ae9fd5308787764b9239506ba5f5203,
     type: 3}
 --- !u!82 &3346708071002530927
 AudioSource:
