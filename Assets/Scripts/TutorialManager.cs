@@ -13,7 +13,7 @@ public class TutorialManager : MonoBehaviour
     public float waitTime = 3f;
     private int _stepsIndex;
 
-    // public GameObject[] shapes;
+    public GameObject[] shapes;
     private int _shapesIndex;
     public GameObject _firstShape;
     public Button playAgain, menu, startGame;
@@ -102,6 +102,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (_stepsIndex == 6)
         {
+            
         }
     }
 
@@ -112,8 +113,7 @@ public class TutorialManager : MonoBehaviour
 
     public void SpawnNext()
     {
-        _nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)), new Vector2(3.0f,
-            6.0f), Quaternion.identity);
+        _nextShape = (GameObject) Instantiate(shapes[1], new Vector2(3.0f, 6.0f), Quaternion.identity);
         // if (_isSpawnTime == false)
         // {
         //     _nextShape.SetActive(false);

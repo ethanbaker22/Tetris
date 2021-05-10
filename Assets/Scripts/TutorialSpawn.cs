@@ -116,28 +116,6 @@ public class TutorialSpawn : MonoBehaviour
             _prevTime = Time.time;
         }
         
-        // if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        // {
-        //     // If holding
-        //     if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        //     {
-        //         // _score.AddToScore(1);
-        //     }
-        //
-        //     transform.position += new Vector3(0, -1, 0);
-        //
-        //     // If not valid then move back
-        //     if (!IsValidMove())
-        //     {
-        //         transform.position -= new Vector3(0, -1, 0);
-        //         AddToGrid();
-        //         DeleteLinesUponComplete();
-        //         enabled = false;
-        //         // _spawnShape.NewTetrisShape();
-        //     }
-        //
-        //     // _prevTime = Time.time;
-        // }
         // Mouse click to make shape go to the bottom of the available grid
         else if (Time.time - _prevTime > (Input.GetMouseButtonDown(0) ? fallTime / 10000 : fallTime))
         {

@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -12,12 +13,13 @@ using UnityEngine.UI;
  */
 public class Menu : MonoBehaviour
 {
-    
-    private Score _score;
     public Text highScoreText, secondHighScoreText, thirdHighScoreText ,fourthHighScoreText;
     public Button play, tutorial, back;
     public GameObject mainMenu;
-
+    public Animator transition;
+    public float transitionTime;
+    
+    private Score _score;
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,6 +28,15 @@ public class Menu : MonoBehaviour
         secondHighScoreText.text = PlayerPrefs.GetInt("Score2").ToString();
         thirdHighScoreText.text = PlayerPrefs.GetInt("Score3").ToString();
         fourthHighScoreText.text = PlayerPrefs.GetInt("Score4").ToString();
+    }
+
+    IEnumerator LoadingLevel()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        // SceneManager.LoadScene(levelIndex);
     }
 
     public void Play()
@@ -44,30 +55,29 @@ public class Menu : MonoBehaviour
     public void PlayAgain()
     {
         Score.NewGame();
+        StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Tetris");
     }
 
     public void MainMenu()
     {
+        StartCoroutine(LoadingLevel());
         mainMenu.SetActive(true);
         play.gameObject.SetActive(false);
         tutorial.gameObject.SetActive(false);
         back.gameObject.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
-
-    public void PreGame()
-    {
-        SceneManager.LoadScene("PreGame");
-    }
-
+    
     public void Tutorial()
     {
+        StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Tutorial");
     }
 
     public void Profile()
     {
+        StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Profile");
     }
 
@@ -81,21 +91,25 @@ public class Menu : MonoBehaviour
 
     public void Settings()
     {
+        StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Settings");
     }
 
     public void Leaderboard()
     {
+        StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Leaderboard");
     }
 
     public void ExitGame()
     {
+        StartCoroutine(LoadingLevel());
         Application.Quit();
     }
 
     public void BackMainMenu()
     {
+        StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("MainMenu");
     }
 }

@@ -20,17 +20,17 @@ public class Profiles : MonoBehaviour
         switch (selectedName)
         {
             case 0:
-                _playerName1 = PlayerPrefs.GetString("name1", "Default");
+                _playerName1 = PlayerPrefs.GetString("name1", "Empty");
                 nameOutput1.text = _playerName1;
                 PlayerPrefs.SetString("Leaderboardname", _playerName1);
                 break;
             case 1:
-                _playerName2 = PlayerPrefs.GetString("name2", "Default");
+                _playerName2 = PlayerPrefs.GetString("name2", "Empty");
                 nameOutput2.text = _playerName2;
                 PlayerPrefs.SetString("Leaderboardname", _playerName2);
                 break;
             case 2:
-                _playerName3 = PlayerPrefs.GetString("name3", "Default");
+                _playerName3 = PlayerPrefs.GetString("name3", "Empty");
                 nameOutput3.text = _playerName3;
                 PlayerPrefs.SetString("Leaderboardname", _playerName3);
                 break;

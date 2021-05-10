@@ -101,16 +101,8 @@ public class FirstShape : MonoBehaviour
             if (!IsValidMove())
             {
                 transform.position -= new Vector3(0, -1, 0);
-                // AddToGrid();
-                // DeleteLinesUponComplete();
                 enabled = false;
-                // if (_tutorialManager.SpawnTime())
-                // {
                 _tutorialManager.SpawnNext();
-                // }
-
-                // _tutorialManager.HitBottom();
-                // _spawnShape.NewTetrisShape();
             }
 
             _prevTime = Time.time;
@@ -123,8 +115,6 @@ public class FirstShape : MonoBehaviour
                 // Mouse Click instant down
                 while (IsValidMove())
                 {
-                    // Adds however many rows we went down
-                    // _score.AddToScore(1);
                     transform.position += new Vector3(0, -1, 0);
                 }
 
@@ -133,15 +123,8 @@ public class FirstShape : MonoBehaviour
                 {
                     _audioSource.PlayOneShot(fallSound);
                     transform.position -= new Vector3(0, -1, 0);
-                    // AddToGrid();
-                    // DeleteLinesUponComplete();
                     enabled = false;
-                    // if (_tutorialManager.SpawnTime())
-                    // {
                     _tutorialManager.SpawnNext();
-                    // }
-                    // _tutorialManager.HitBottom();
-                    // _spawnShape.NewTetrisShape();
                 }
             }
         }
