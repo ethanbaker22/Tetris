@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/**
+ * LoadLevel.cs
+ * @author Ethan Baker - 986237
+ *
+ * Deals with the Menu Transitions
+ */
 public class LoadLevel : MonoBehaviour
 {
     public Slider loadingSlider;

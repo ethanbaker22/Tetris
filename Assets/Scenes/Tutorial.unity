@@ -354,6 +354,108 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &155036358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155036359}
+  - component: {fileID: 155036361}
+  - component: {fileID: 155036360}
+  - component: {fileID: 155036362}
+  m_Layer: 5
+  m_Name: Tip#2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &155036359
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155036358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2021057647}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 707.2, y: 113.2}
+  m_SizeDelta: {x: 410.40625, y: 692.05865}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &155036360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155036358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 598661189e2596d4da16c555cdc98667, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 598661189e2596d4da16c555cdc98667, type: 3}
+    m_FontSize: 44
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 47
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.5
+  m_Text: "You can Achieve a Higher Score but holding 'Down' or using Mouse Button
+    1 as you get a point for every square you move the block. \n\nThis increases
+    depeding on your Level."
+--- !u!222 &155036361
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155036358}
+  m_CullTransparentMesh: 0
+--- !u!223 &155036362
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155036358}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
 --- !u!1 &174820756 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1040806419159030460, guid: e0019bd3b62119948baf32bbba6adb71,
@@ -2057,6 +2159,111 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &636290078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 636290079}
+  - component: {fileID: 636290081}
+  - component: {fileID: 636290080}
+  - component: {fileID: 636290082}
+  m_Layer: 5
+  m_Name: Tip#1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &636290079
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636290078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2021057647}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -707.2, y: 113.2}
+  m_SizeDelta: {x: 410.40625, y: 692.05865}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &636290080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636290078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 966b0d11f5308b5418e322236460774d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 598661189e2596d4da16c555cdc98667, type: 3}
+    m_FontSize: 44
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 47
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.5
+  m_Text: 'Every 10 Lines CLeared in Game, the Level will Increment by 1 & the Speed
+    will increase.
+
+
+    On Levels 2, 5, 8 & 10 ''Frenzy'' Mode will enable, increasing
+    the speed more!'
+--- !u!222 &636290081
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636290078}
+  m_CullTransparentMesh: 0
+--- !u!223 &636290082
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636290078}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
 --- !u!1 &667884008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,6 +2955,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Transition
       objectReference: {fileID: 0}
+    - target: {fileID: 4949418539261322110, guid: e2ee0c5f3c913a3488337ce68aece499,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4949418539261322111, guid: e2ee0c5f3c913a3488337ce68aece499,
         type: 3}
       propertyPath: m_RootOrder
@@ -2925,6 +3137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1193925094}
+  - component: {fileID: 1193925095}
   m_Layer: 5
   m_Name: State7
   m_TagString: Untagged
@@ -2955,6 +3168,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1193925095
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193925093}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
 --- !u!1 &1273212395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,6 +3561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1357344695}
+  - component: {fileID: 1357344696}
   m_Layer: 5
   m_Name: State8
   m_TagString: Untagged
@@ -3367,6 +3592,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1357344696
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357344694}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
 --- !u!1 &1374239983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5149,6 +5385,8 @@ RectTransform:
   - {fileID: 219871038}
   - {fileID: 1193925094}
   - {fileID: 1357344695}
+  - {fileID: 636290079}
+  - {fileID: 155036359}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5512,6 +5750,8 @@ MonoBehaviour:
     type: 3}
   beatHighScore: {fileID: 7511671492722718363, guid: b38b3298805ec3b419d51e96f5f36334,
     type: 3}
+  linesCleared: {fileID: 0}
+  frenzy: {fileID: 0}
 --- !u!212 &492187064681219276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7445,6 +7685,8 @@ MonoBehaviour:
     type: 3}
   beatHighScore: {fileID: 7511671492722718363, guid: b38b3298805ec3b419d51e96f5f36334,
     type: 3}
+  linesCleared: {fileID: 0}
+  frenzy: {fileID: 0}
 --- !u!114 &3751122705792601842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7465,6 +7707,8 @@ MonoBehaviour:
     type: 3}
   beatHighScore: {fileID: 7511671492722718363, guid: b38b3298805ec3b419d51e96f5f36334,
     type: 3}
+  linesCleared: {fileID: 0}
+  frenzy: {fileID: 0}
 --- !u!212 &3823489131958736798
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8074,6 +8318,8 @@ MonoBehaviour:
     type: 3}
   beatHighScore: {fileID: 7511671492722718363, guid: b38b3298805ec3b419d51e96f5f36334,
     type: 3}
+  linesCleared: {fileID: 0}
+  frenzy: {fileID: 0}
 --- !u!82 &7046372324903847673
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9610,3 +9856,5 @@ MonoBehaviour:
     type: 3}
   beatHighScore: {fileID: 7511671492722718363, guid: b38b3298805ec3b419d51e96f5f36334,
     type: 3}
+  linesCleared: {fileID: 0}
+  frenzy: {fileID: 0}

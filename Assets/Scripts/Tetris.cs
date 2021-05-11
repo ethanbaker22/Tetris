@@ -49,6 +49,7 @@ public class Tetris : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        // _spawnShape = gameObject.GetComponent<SpawnShape>();
         _spawnShape = FindObjectOfType<SpawnShape>();
         _score = FindObjectOfType<Score>();
         _audioSource = GetComponent<AudioSource>();
@@ -128,6 +129,7 @@ public class Tetris : MonoBehaviour
                 AddToGrid();
                 DeleteLinesUponComplete();
                 enabled = false;
+                // gameObject.GetComponent<SpawnShape>().NewTetrisShape();
                 _spawnShape.NewTetrisShape();
             }
 
@@ -154,6 +156,7 @@ public class Tetris : MonoBehaviour
                     AddToGrid();
                     DeleteLinesUponComplete();
                     enabled = false;
+                    // gameObject.GetComponent<SpawnShape>().NewTetrisShape();
                     _spawnShape.NewTetrisShape();
                 }
             }
@@ -176,7 +179,6 @@ public class Tetris : MonoBehaviour
             }
         }
     }
-
 
     /**
      * Goes through the Grid to check for full lines
@@ -231,31 +233,35 @@ public class Tetris : MonoBehaviour
     }
 
     /**
-     * 
+     * Clears Multiple Rows if there are rows to clear
      */
     private void MultiRowClearing()
     {
         if (_rowsCleared <= 0) return;
         switch (_rowsCleared)
         {
+            // 1 Row
             case 1:
                 _score.AddToScore(oneLineScore * (_currentLevel + 1));
                 _linesCleared += 1;
                 _score.SetClearedLines(1);
                 print("one line " + _linesCleared + " " + oneLineScore * (_currentLevel + 1));
                 break;
+            // 2 Rows
             case 2:
                 _score.AddToScore(twoLineScore * (_currentLevel + 1));
                 _linesCleared += 2;
                 _score.SetClearedLines(2);
                 print("two line " + _linesCleared + " " + twoLineScore * (_currentLevel + 1));
                 break;
+            // 3 Rows
             case 3:
                 _score.AddToScore(threeLineScore * (_currentLevel + 1));
                 _linesCleared += 3;
                 _score.SetClearedLines(3);
                 print("three line " + _linesCleared + " " + threeLineScore * (_currentLevel + 1));
                 break;
+            // 4 Rows
             case 4:
                 _score.AddToScore(fourLineScore * (_currentLevel + 1));
                 _linesCleared += 4;

@@ -1,9 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/**
+ * FirstShape.cs
+ * @author Ethan Baker - 986237
+ *
+ * Deals with tutorial Shape System
+ */
 public class FirstShape : MonoBehaviour
 {
+    // Audio Clips
     public AudioClip blockRotateSound;
     public AudioClip clearSound;
     public AudioClip fallSound;
@@ -14,14 +19,16 @@ public class FirstShape : MonoBehaviour
     public AudioClip start;
     public AudioClip success;
 
+    // Tutorial Grid Size
     private const int Width = 9;
     private const int Height = 8;
 
+    // Speed of Falling
     private float _prevTime;
     private float fallTime = 100;
 
+    // References to other classes 
     private AudioSource _audioSource;
-
     private TutorialManager _tutorialManager;
 
     // Rotation x,y,z which can be changed in the editor
@@ -42,6 +49,9 @@ public class FirstShape : MonoBehaviour
         CheckUserInput();
     }
 
+    /**
+     * Checks to see which Keys the User Presses
+     */
     private void CheckUserInput()
     {
         // Press left arrow to move one block left
@@ -107,7 +117,7 @@ public class FirstShape : MonoBehaviour
 
             _prevTime = Time.time;
         }
-
+        // Press Mouse Button to instantly fall to the bottom
         else if (Time.time - _prevTime > (Input.GetMouseButtonDown(0) ? fallTime / 10000 : fallTime))
         {
             if (!PauseMenu.IsPause)
@@ -129,8 +139,11 @@ public class FirstShape : MonoBehaviour
             }
         }
     }
-    
-    public bool IsValidMove()
+
+    /**
+     * Checks to see if the grid position is available for the shape to move
+     */
+    private bool IsValidMove()
     {
         foreach (Transform children in transform)
         {

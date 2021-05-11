@@ -35,18 +35,17 @@ public class Score : MonoBehaviour
 
     private void Start()
     {
+        // Sets Text back to Default
         _beatHighScore = "";
         _frenzyStatus = "No";
-        // print("Score start player name " + _playerName);
-        // _fileHighScore = PlayerPrefs.SetInt("Score1", 0);
-        // _position = frenzy.transform.position;
-        // frenzy.transform.position = new Vector3(0, -99999999, 0);
 
+        // Gets Current Scores
         _fileHighScore = PlayerPrefs.GetInt("Score1");
         _secondHighScore = PlayerPrefs.GetInt("Score2");
         _thirdHighScore = PlayerPrefs.GetInt("Score3");
         _fourthHighScore = PlayerPrefs.GetInt("Score4");
 
+        // Gets Scores Names
         _nameHighScore = PlayerPrefs.GetString("Score1Name", "#1");
         _nameSecondHighScore = PlayerPrefs.GetString("Score2Name", "#2");
         _nameThirdHighScore = PlayerPrefs.GetString("Score3Name", "#3");
@@ -56,17 +55,18 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // print("Score update player name " +  PlayerPrefs.GetString("LeaderboardName"));
         UpdateScore();
         UpdateLevel();
         UpdateLines();
         UpdateFrenzy();
-        
+
+        // Gets Current Scores
         _fileHighScore = PlayerPrefs.GetInt("Score1");
         _secondHighScore = PlayerPrefs.GetInt("Score2");
         _thirdHighScore = PlayerPrefs.GetInt("Score3");
         _fourthHighScore = PlayerPrefs.GetInt("Score4");
 
+        // Gets Scores Names
         _nameHighScore = PlayerPrefs.GetString("Score1Name", "#1");
         _nameSecondHighScore = PlayerPrefs.GetString("Score2Name", "#2");
         _nameThirdHighScore = PlayerPrefs.GetString("Score3Name", "#3");
@@ -111,7 +111,7 @@ public class Score : MonoBehaviour
     }
 
     /**
-     * 
+     * Updates the HighScore through PlayerPrefs
      */
     private void UpdateHighScore()
     {
@@ -169,31 +169,39 @@ public class Score : MonoBehaviour
         }
     }
 
+    /**
+     * Sets the message which is shown at the end screen
+     */
     private void SetEndMsg(int value)
     {
         switch (value)
         {
+            // Beat the 4th Score
             case 4:
                 _beatHighScore = "You beat the #4 High Score!";
                 beatHighScore.text = _beatHighScore;
                 print(beatHighScore);
                 print("4");
                 break;
+            // Beat the 3rd Score
             case 3:
                 _beatHighScore = "You beat the #3 High Score!";
                 beatHighScore.text = _beatHighScore;
                 print("3");
                 break;
+            // Beat the 2nd Score
             case 2:
                 _beatHighScore = "You beat the #2 High Score!";
                 beatHighScore.text = _beatHighScore;
                 print("2");
                 break;
+            // Beat the 1st Score
             case 1:
                 _beatHighScore = "You beat the #1 High Score!";
                 beatHighScore.text = _beatHighScore;
                 print("1");
                 break;
+            // Score does not make Leaderboard
             default:
                 print("default");
                 _beatHighScore = "";
@@ -202,6 +210,9 @@ public class Score : MonoBehaviour
         }
     }
 
+    /**
+     * Sets the score of each individual Player
+     */
     private void SetPlayersHighestScore()
     {
         int playersScore = PlayerPrefs.GetInt(_playerName);
@@ -215,7 +226,7 @@ public class Score : MonoBehaviour
     }
 
     /**
-     * 
+     * Adds to which level the player is on
      */
     public void AddToLevel(int level)
     {
@@ -224,7 +235,7 @@ public class Score : MonoBehaviour
     }
 
     /**
-     * 
+     * Updates Level Text
      */
     private void UpdateLevel()
     {
@@ -232,7 +243,7 @@ public class Score : MonoBehaviour
     }
 
     /**
-     * 
+     * Sets the number of lines the player has cleared
      */
     public void SetClearedLines(int numOfLines)
     {
@@ -241,19 +252,22 @@ public class Score : MonoBehaviour
     }
 
     /**
-     * 
+     * Updates the lines cleared text
      */
     private void UpdateLines()
     {
         linesCleared.text = "Lines: " + _linesCleared;
     }
 
+    /**
+     * Updates the Frenzy Text
+     */
     private void UpdateFrenzy()
     {
         if (_level == 2 || _level == 5 || _level == 8 || _level == 10)
         {
             _frenzyStatus = "Yes";
-            print("FUCKIGN FRENZY " + _frenzyStatus);
+            print("FRENZY" + _frenzyStatus);
             frenzy.text = "Frenzy: " + _frenzyStatus;
             frenzy.color = Color.red;
         }

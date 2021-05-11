@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * TutorialSpawn.cs
+ * @author Ethan Baker - 986237
+ *
+ * Deals with the Spawning Tutorial Shapes
+ */
 public class TutorialSpawn : MonoBehaviour
 {
     // Audio clips for the game
@@ -14,21 +20,22 @@ public class TutorialSpawn : MonoBehaviour
     public AudioClip select;
     public AudioClip start;
     public AudioClip success;
-    
+
     private const int Width = 9;
     private const int Height = 8;
-    
+
     private float _prevTime;
     private float fallTime = 100;
-    
+
     private AudioSource _audioSource;
 
     private TutorialManager _tutorialManager;
 
     // Rotation x,y,z which can be changed in the editor
     [SerializeField] public Vector3 rotation;
-    
+
     private static readonly Transform[,] Grid = new Transform[Width, Height];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +48,7 @@ public class TutorialSpawn : MonoBehaviour
     {
         CheckUserInput();
     }
-    
+
     private void CheckUserInput()
     {
         // Press left arrow to move one block left
@@ -94,9 +101,9 @@ public class TutorialSpawn : MonoBehaviour
             {
                 // _score.AddToScore(1);
             }
-        
+
             transform.position += new Vector3(0, -1, 0);
-        
+
             // If not valid then move back
             if (!IsValidMove())
             {
@@ -106,16 +113,16 @@ public class TutorialSpawn : MonoBehaviour
                 enabled = false;
                 // if (_tutorialManager.SpawnTime())
                 // {
-                    _tutorialManager.SpawnNext();
+                _tutorialManager.SpawnNext();
                 // }
-                
+
                 // _tutorialManager.HitBottom();
                 // _spawnShape.NewTetrisShape();
             }
-        
+
             _prevTime = Time.time;
         }
-        
+
         // Mouse click to make shape go to the bottom of the available grid
         else if (Time.time - _prevTime > (Input.GetMouseButtonDown(0) ? fallTime / 10000 : fallTime))
         {
@@ -139,7 +146,7 @@ public class TutorialSpawn : MonoBehaviour
                     enabled = false;
                     // if (_tutorialManager.SpawnTime())
                     // {
-                        _tutorialManager.SpawnNext();
+                    _tutorialManager.SpawnNext();
                     // }
                     // _tutorialManager.HitBottom();
                     // _spawnShape.NewTetrisShape();
@@ -147,7 +154,7 @@ public class TutorialSpawn : MonoBehaviour
             }
         }
     }
-    
+
     public bool IsValidMove()
     {
         foreach (Transform children in transform)
@@ -169,7 +176,7 @@ public class TutorialSpawn : MonoBehaviour
 
         return true;
     }
-    
+
     private void AddToGrid()
     {
         foreach (Transform children in transform)
@@ -183,7 +190,7 @@ public class TutorialSpawn : MonoBehaviour
 
         CheckIfGameOver();
     }
-    
+
     private void CheckIfGameOver()
     {
         for (var j = 0; j < Width; j++)
@@ -195,8 +202,8 @@ public class TutorialSpawn : MonoBehaviour
             }
         }
     }
-    
-    
+
+
     /**
      * Deletes lines when full
      */

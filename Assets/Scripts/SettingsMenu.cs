@@ -5,6 +5,12 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+/**
+ * SettingsMenu.cs
+ * @author Ethan Baker - 986237
+ *
+ * Deals with the Settings Menu system
+ */
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
@@ -25,7 +31,8 @@ public class SettingsMenu : MonoBehaviour
             string option = _resolutions[i].width + " x " + _resolutions[i].height;
             screen.Add(option);
 
-            if (_resolutions[i].width == Screen.currentResolution.width && _resolutions[i].height == Screen.currentResolution.height)
+            if (_resolutions[i].width == Screen.currentResolution.width &&
+                _resolutions[i].height == Screen.currentResolution.height)
             {
                 currentRes = i;
             }

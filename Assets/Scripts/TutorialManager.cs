@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+/**
+ * Tutorial Manager.cs
+ * @author Ethan Baker - 986237
+ *
+ * Deals with the Tutorial Manager system
+ */
 public class TutorialManager : MonoBehaviour
 {
     public GameObject[] steps;
@@ -86,8 +92,6 @@ public class TutorialManager : MonoBehaviour
             if (waitTime <= 0)
             {
                 _stepsIndex++;
-                // shapes[0].SetActive(false);
-                // initalShape.SetActive(false);
             }
             else
             {
@@ -106,14 +110,12 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    // public bool HitBottom()
-    // {
-    //     return true;
-    // }
-
     public void SpawnNext()
     {
-        _nextShape = (GameObject) Instantiate(shapes[1], new Vector2(3.0f, 6.0f), Quaternion.identity);
+        // _nextShape = (GameObject) Instantiate(shapes[1], new Vector2(3.0f, 6.0f), Quaternion.identity);
+        
+        _nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
+            new Vector2(3.0f, 6.0f), Quaternion.identity);
         // if (_isSpawnTime == false)
         // {
         //     _nextShape.SetActive(false);
@@ -126,7 +128,7 @@ public class TutorialManager : MonoBehaviour
 
     private static string GetRandomShape()
     {
-        var randomShape = Random.Range(1, 2);
+        var randomShape = Random.Range(1, 4);
 
         var randomShapeName = "Prefabs/Tutorial/L-block2";
 
@@ -137,6 +139,9 @@ public class TutorialManager : MonoBehaviour
                 break;
             case 2:
                 randomShapeName = "Prefabs/Tutorial/L-block3";
+                break;
+            case 3:
+                randomShapeName = "Prefabs/Tutorial/L-block4";
                 break;
         }
 

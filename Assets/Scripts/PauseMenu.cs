@@ -2,7 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
+/**
+ * PauseMenu.cs
+ * @author Ethan Baker - 986237
+ *
+ * Deals with the Pause Menu System
+ */
 public class PauseMenu : MonoBehaviour
 {
     public static bool IsPause = false;
@@ -12,6 +22,12 @@ public class PauseMenu : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        CheckUserInput();
+    }
+
+    // Checks for when User hits Escape Key
+    private void CheckUserInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -26,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Resumes Game
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -34,7 +51,8 @@ public class PauseMenu : MonoBehaviour
         audio.SetActive(true);
     }
 
-    void Pause()
+    // Pauses Game
+    private void Pause()
     {
         audio.SetActive(false);
         pauseMenuUI.SetActive(true);
@@ -42,12 +60,14 @@ public class PauseMenu : MonoBehaviour
         IsPause = true;
     }
 
+    // Loads Main Menu
     public void LoadMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
+    // Exits Game
     public void QuitGame()
     {
         print("Quit");

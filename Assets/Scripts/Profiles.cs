@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * Profiles.cs
+ * @author Ethan Baker - 986237
+ *
+ * Deals with the Profile system
+ */
 public class Profiles : MonoBehaviour
 {
     public GameObject[] profile;
@@ -25,6 +31,12 @@ public class Profiles : MonoBehaviour
 
     private void Update()
     {
+        SwitchName();
+    }
+
+    // Switches Name Depending On Which one is selected.
+    private void SwitchName()
+    {
         switch (selectedName)
         {
             case 0:
@@ -32,7 +44,6 @@ public class Profiles : MonoBehaviour
                 nameOutput1.text = _playerName1;
                 PlayerPrefs.SetString("Leaderboardname", _playerName1);
                 int playersScore1 = PlayerPrefs.GetInt(_playerName1);
-                // _selectProfile.SetName(_playerName1);
                 score1.text = "Highest Score: " + playersScore1;
                 break;
             case 1:
@@ -40,7 +51,6 @@ public class Profiles : MonoBehaviour
                 nameOutput2.text = _playerName2;
                 PlayerPrefs.SetString("Leaderboardname", _playerName2);
                 int playersScore2 = PlayerPrefs.GetInt(_playerName2);
-                // _selectProfile.SetName(_playerName2);
                 score1.text = "Highest Score: " + playersScore2;
                 break;
             case 2:
@@ -48,31 +58,41 @@ public class Profiles : MonoBehaviour
                 nameOutput3.text = _playerName3;
                 PlayerPrefs.SetString("Leaderboardname", _playerName3);
                 int playersScore3 = PlayerPrefs.GetInt(_playerName3);
-                // _selectProfile.SetName(_playerName3);
                 score1.text = "Highest Score: " + playersScore3;
                 break;
         }
     }
 
+    // Changes to Next Profile
     public void NextProfile()
     {
+        // Sets current Profile False
         profile[selectedProfile].SetActive(false);
         name[selectedName].SetActive(false);
         score[selectedScore].SetActive(false);
+
+        // Changes Profile through the array
         selectedProfile = (selectedProfile + 1) % profile.Length;
         selectedName = (selectedName + 1) % name.Length;
+
+        // Sets new Profile True
         profile[selectedProfile].SetActive(true);
         name[selectedName].SetActive(true);
         score[selectedScore].SetActive(true);
     }
 
+    // Changes To Previous Profile
     public void PreviousProfile()
     {
+        // Sets current Profile False
         profile[selectedProfile].SetActive(false);
         name[selectedName].SetActive(false);
         score[selectedScore].SetActive(false);
+
+        // Changes Profile through the array
         selectedProfile--;
         selectedName--;
+
         if (selectedProfile < 0)
         {
             selectedProfile += profile.Length;
@@ -83,52 +103,54 @@ public class Profiles : MonoBehaviour
             selectedName += name.Length;
         }
 
+        // Sets new Profile True
         profile[selectedProfile].SetActive(true);
         name[selectedName].SetActive(true);
         score[selectedScore].SetActive(true);
     }
 
-
+    // Sets the Profile Name
     public void SetName()
     {
         switch (selectedName)
         {
-            
             case 0:
-            { 
-                // PlayerPrefs.SetString("LeaderboardName", nameOutput1.text);
+            {
                 PlayerPrefs.SetString("profile", "name1");
+
                 //If not entering name, name stays the same
                 if (nameInput.text != "")
                 {
                     _saveName = nameInput.text;
                     PlayerPrefs.SetString("name1", _saveName);
-                    
                 }
+
                 break;
             }
             case 1:
             {
                 PlayerPrefs.SetString("profile", "name2");
+
                 //If not entering name, name stays the same
                 if (nameInput.text != "")
                 {
                     _saveName = nameInput.text;
                     PlayerPrefs.SetString("name2", _saveName);
                 }
+
                 break;
             }
             case 2:
             {
                 PlayerPrefs.SetString("profile", "name3");
+
                 //If not entering name, name stays the same
                 if (nameInput.text != "")
                 {
                     _saveName = nameInput.text;
                     PlayerPrefs.SetString("name3", _saveName);
-                    
                 }
-                // PlayerPrefs.SetString("LeaderboardName", nameOutput3.text);
+
                 break;
             }
         }

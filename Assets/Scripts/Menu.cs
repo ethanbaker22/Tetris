@@ -13,13 +13,14 @@ using UnityEngine.UI;
  */
 public class Menu : MonoBehaviour
 {
-    public Text highScoreText, secondHighScoreText, thirdHighScoreText ,fourthHighScoreText;
+    public Text highScoreText, secondHighScoreText, thirdHighScoreText, fourthHighScoreText;
     public Button play, tutorial, back;
     public GameObject mainMenu;
     public Animator transition;
     public float transitionTime;
-    
+
     private Score _score;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -35,8 +36,6 @@ public class Menu : MonoBehaviour
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
-
-        // SceneManager.LoadScene(levelIndex);
     }
 
     public void Play()
@@ -45,13 +44,9 @@ public class Menu : MonoBehaviour
         play.gameObject.SetActive(true);
         tutorial.gameObject.SetActive(true);
         back.gameObject.SetActive(true);
-        // play.GetComponent<Text>().enabled = true;
-        // tutorial.GetComponent<Text>().enabled = true;
     }
 
-    /**
-     * Button is pressed, score is set to 0 and the Tetris scene is loaded
-     */
+    // Button is pressed, score is set to 0 and the Tetris scene is loaded.
     public void PlayAgain()
     {
         Score.NewGame();
@@ -59,6 +54,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Tetris");
     }
 
+    //Open Main Menu Scene
     public void MainMenu()
     {
         StartCoroutine(LoadingLevel());
@@ -68,57 +64,57 @@ public class Menu : MonoBehaviour
         back.gameObject.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
-    
+
+    // Open Tutorial Scene
     public void Tutorial()
     {
         StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Tutorial");
     }
 
+    // Open Profile Scene
     public void Profile()
     {
         StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Profile");
     }
 
-    /**
-     * 
-     */
-    // public void PlayGame()
-    // {
-    //     SceneManager.LoadScene("Tetris");
-    // }
-
+    // Open Settings Scene
     public void Settings()
     {
         StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Settings");
     }
 
+    // Open Leaderboard Scene
     public void Leaderboard()
     {
         StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Leaderboard");
     }
 
+    // Exits Game
     public void ExitGame()
     {
         StartCoroutine(LoadingLevel());
         Application.Quit();
     }
 
+    // Return to Main Menu Scene
     public void BackMainMenu()
     {
         StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("MainMenu");
     }
 
+    // Opens Acknowledgements Scene
     public void Acknowledgements()
     {
         StartCoroutine(LoadingLevel());
         SceneManager.LoadScene("Acknowledgements");
     }
 
+    // Opens Web Browser to show where the item came from
     public void OpenURL(int urlNum)
     {
         switch (urlNum)

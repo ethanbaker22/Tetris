@@ -24,15 +24,16 @@ public class SpawnShape : MonoBehaviour
     }
 
     /**
-     * 
+     * Spawns New Shape
      */
     public void NewTetrisShape()
     {
         if (!_gameStarted)
         {
-            // GhostShape();
+            // GhostShape(); - Not ready to be implemented
             _gameStarted = true;
 
+            // Adds a start shape and a Next Shape
             _tetrisShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
                 new Vector2(5.0f, 23.0f), Quaternion.identity);
             _nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
@@ -41,10 +42,12 @@ public class SpawnShape : MonoBehaviour
         }
         else
         {
+            // Moves Next Shape to Current Shape
             _nextShape.transform.localPosition = new Vector2(5.0f, 23.0f);
             _tetrisShape = _nextShape;
             _tetrisShape.GetComponent<Tetris>().enabled = true;
 
+            // Adds a new next Shape
             _nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
                 _nextShapePosition, Quaternion.identity);
             _nextShape.GetComponent<Tetris>().enabled = false;
@@ -52,7 +55,7 @@ public class SpawnShape : MonoBehaviour
     }
 
     /**
-     * 
+     * Gets Random Shape
      */
     private static string GetRandomShape()
     {
@@ -89,19 +92,26 @@ public class SpawnShape : MonoBehaviour
         return randomShapeName;
     }
 
+    /**
+     * Sets the Current Shape
+     */
     private static void SetCurrentShape(string shape)
     {
         _currentShape = shape;
     }
 
+    /**
+     * Gets the Current Shape
+     */
     private static string GetCurrentShape()
     {
         return _currentShape;
     }
 
+    // Not Ready
     public void GhostShape()
     {
-        _ghostShape = (GameObject) Instantiate(_nextShape,   
+        _ghostShape = (GameObject) Instantiate(_nextShape,
             new Vector2(5f, 20f), Quaternion.identity);
         // Destroy(_ghostShape.GetComponent<);
         _ghostShape = _tetrisShape;
