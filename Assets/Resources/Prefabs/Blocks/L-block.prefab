@@ -168,6 +168,7 @@ MonoBehaviour:
     type: 3}
   linesCleared: {fileID: 3187535484915188750, guid: 79004c4291d53834fa80620250cc3be5,
     type: 3}
+  frenzy: {fileID: 4807000424490835695, guid: 8d0346774cfc33543a876727ee2f47a9, type: 3}
 --- !u!82 &9118703029336032953
 AudioSource:
   m_ObjectHideFlags: 0

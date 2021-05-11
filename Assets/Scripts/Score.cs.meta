@@ -8,6 +8,8 @@ MonoImporter:
   - finalScoreText: {instanceID: 0}
   - levelText: {instanceID: 0}
   - beatHighScore: {instanceID: 0}
+  - linesCleared: {instanceID: 0}
+  - frenzy: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

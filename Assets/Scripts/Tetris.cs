@@ -12,15 +12,7 @@ using UnityEngine.UI;
 public class Tetris : MonoBehaviour
 {
     // Audio clips for the game
-    public AudioClip blockRotateSound;
-    public AudioClip clearSound;
-    public AudioClip fallSound;
-    public AudioClip gameOver;
-    public AudioClip move;
-    public AudioClip pause;
-    public AudioClip select;
-    public AudioClip start;
-    public AudioClip success;
+    public AudioClip blockRotateSound, clearSound, fallSound, gameOver, move, pause, select, start, success;
 
     //
     private float _prevTime;
@@ -31,6 +23,9 @@ public class Tetris : MonoBehaviour
     private const int Height = 25;
     private static int _currentLevel = 0;
     private static int _linesCleared = 0;
+
+    //
+    // public float frenzyTime = 3f;
 
     // Scoring depending on how many lines are cleared
     [SerializeField] public int oneLineScore, twoLineScore, threeLineScore, fourLineScore;
@@ -44,7 +39,9 @@ public class Tetris : MonoBehaviour
 
     // Other classes 
     private SpawnShape _spawnShape;
+
     private static Score _score;
+    // private FrenzyText _frenzyText;
 
     // Add shapes to grid array to know where they are located
     private static readonly Transform[,] Grid = new Transform[Width, Height];
@@ -55,7 +52,6 @@ public class Tetris : MonoBehaviour
         _spawnShape = FindObjectOfType<SpawnShape>();
         _score = FindObjectOfType<Score>();
         _audioSource = GetComponent<AudioSource>();
-        // GhostShape();
     }
 
     // Update is called once per frame
@@ -65,8 +61,6 @@ public class Tetris : MonoBehaviour
         MultiRowClearing();
         Levels();
         FallSpeed();
-        // GhostShape();
-        // print(_rowsCleared);
     }
 
     /**
@@ -248,13 +242,11 @@ public class Tetris : MonoBehaviour
                 _score.AddToScore(oneLineScore * (_currentLevel + 1));
                 _linesCleared += 1;
                 _score.SetClearedLines(1);
-                // _score.AddToLevel(linesCleared);
                 print("one line " + _linesCleared + " " + oneLineScore * (_currentLevel + 1));
                 break;
             case 2:
                 _score.AddToScore(twoLineScore * (_currentLevel + 1));
                 _linesCleared += 2;
-                // _score.AddToLevel(linesCleared);
                 _score.SetClearedLines(2);
                 print("two line " + _linesCleared + " " + twoLineScore * (_currentLevel + 1));
                 break;
@@ -262,14 +254,12 @@ public class Tetris : MonoBehaviour
                 _score.AddToScore(threeLineScore * (_currentLevel + 1));
                 _linesCleared += 3;
                 _score.SetClearedLines(3);
-                // _score.AddToLevel(linesCleared);
                 print("three line " + _linesCleared + " " + threeLineScore * (_currentLevel + 1));
                 break;
             case 4:
                 _score.AddToScore(fourLineScore * (_currentLevel + 1));
                 _linesCleared += 4;
                 _score.SetClearedLines(4);
-                // _score.AddToLevel(linesCleared);
                 print("four line " + _linesCleared + " " + fourLineScore * (_currentLevel + 1));
                 break;
         }
@@ -290,8 +280,25 @@ public class Tetris : MonoBehaviour
      */
     private void FallSpeed()
     {
-        fallTime = 0.8f - _currentLevel * 0.1f;
-        // print("Fall Time: " + fallTime);
+        const float fallTimeLvl2 = 0.5f, fallTimeLvl5 = 0.3f, fallTimeLvl8 = 0.15f, fallTimeLvl10 = 0.1f;
+        switch (_currentLevel)
+        {
+            case 2:
+                fallTime = fallTimeLvl2;
+                break;
+            case 5:
+                fallTime = fallTimeLvl5;
+                break;
+            case 8:
+                fallTime = fallTimeLvl8;
+                break;
+            case 10:
+                fallTime = fallTimeLvl10;
+                break;
+            default:
+                fallTime = 0.8f - _currentLevel * 0.06f;
+                break;
+        }
     }
 
     /**
@@ -349,15 +356,6 @@ public class Tetris : MonoBehaviour
 
         return true;
     }
-    
-    // private void GhostShape()
-    // {
-    //     _spawnShape.GhostShape();
-    //     while (IsValidMove())
-    //     {
-    //         transform.position += new Vector3(0, -1, 0);
-    //     }
-    // }
 
     /**
      * Loads Game Over Scene

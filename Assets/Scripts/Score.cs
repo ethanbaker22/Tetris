@@ -15,27 +15,38 @@ public class Score : MonoBehaviour
     public Text levelText;
     public Text beatHighScore;
     public Text linesCleared;
+    public Text frenzy;
 
     private static int _score = 0;
     private static int _finalScore;
     private static int _level = 0;
     private static int _linesCleared = 0;
-    private int _fileHighScore, _secondHighScore ,_thirdHighScore, _fourthHighScore;
-    private string _nameHighScore, _nameSecondHighScore, _nameThirdHighScore, _nameFourthHighScore, _playerName, _beatHighScore;
+    private int _fileHighScore, _secondHighScore, _thirdHighScore, _fourthHighScore;
 
-    // private static FinalScore _final;
+    private string _nameHighScore,
+        _nameSecondHighScore,
+        _nameThirdHighScore,
+        _nameFourthHighScore,
+        _playerName,
+        _beatHighScore,
+        _frenzyStatus;
+
+    private Vector3 _position;
 
     private void Start()
     {
         _beatHighScore = "";
+        _frenzyStatus = "No";
         // print("Score start player name " + _playerName);
         // _fileHighScore = PlayerPrefs.SetInt("Score1", 0);
-        
+        // _position = frenzy.transform.position;
+        // frenzy.transform.position = new Vector3(0, -99999999, 0);
+
         _fileHighScore = PlayerPrefs.GetInt("Score1");
         _secondHighScore = PlayerPrefs.GetInt("Score2");
         _thirdHighScore = PlayerPrefs.GetInt("Score3");
         _fourthHighScore = PlayerPrefs.GetInt("Score4");
-        
+
         _nameHighScore = PlayerPrefs.GetString("Score1Name", "#1");
         _nameSecondHighScore = PlayerPrefs.GetString("Score2Name", "#2");
         _nameThirdHighScore = PlayerPrefs.GetString("Score3Name", "#3");
@@ -49,6 +60,8 @@ public class Score : MonoBehaviour
         UpdateScore();
         UpdateLevel();
         UpdateLines();
+        UpdateFrenzy();
+        
         _fileHighScore = PlayerPrefs.GetInt("Score1");
         _secondHighScore = PlayerPrefs.GetInt("Score2");
         _thirdHighScore = PlayerPrefs.GetInt("Score3");
@@ -59,7 +72,7 @@ public class Score : MonoBehaviour
         _nameThirdHighScore = PlayerPrefs.GetString("Score3Name", "#3");
         _nameFourthHighScore = PlayerPrefs.GetString("Score4Name", "#4");
     }
-    
+
     /**
      * Sets score to 0 when new game is started
      */
@@ -69,7 +82,7 @@ public class Score : MonoBehaviour
         _level = 0;
         // _beatHighScore = "";
     }
-    
+
     /**
      * Updates the score variable 
      */
@@ -86,7 +99,7 @@ public class Score : MonoBehaviour
     {
         scoreText.text = "Score: " + _score;
     }
-    
+
     /**
      * Sets the final score when called
      */
@@ -96,7 +109,7 @@ public class Score : MonoBehaviour
         UpdateHighScore();
         SetPlayersHighestScore();
     }
-    
+
     /**
      * 
      */
@@ -116,7 +129,7 @@ public class Score : MonoBehaviour
             // num1.text = _playerName;
             SetEndMsg(1);
             print("here");
-        } 
+        }
         else if (_score > _secondHighScore)
         {
             PlayerPrefs.SetInt("Score4", _thirdHighScore);
@@ -217,7 +230,7 @@ public class Score : MonoBehaviour
     {
         levelText.text = "Level: " + _level;
     }
-    
+
     /**
      * 
      */
@@ -233,5 +246,23 @@ public class Score : MonoBehaviour
     private void UpdateLines()
     {
         linesCleared.text = "Lines: " + _linesCleared;
+    }
+
+    private void UpdateFrenzy()
+    {
+        if (_level == 2 || _level == 5 || _level == 8 || _level == 10)
+        {
+            _frenzyStatus = "Yes";
+            print("FUCKIGN FRENZY " + _frenzyStatus);
+            frenzy.text = "Frenzy: " + _frenzyStatus;
+            frenzy.color = Color.red;
+        }
+        else
+        {
+            frenzy.color = Color.white;
+            _frenzyStatus = "No";
+            print("NOT FRENZY " + _frenzyStatus);
+            frenzy.text = "Frenzy: " + _frenzyStatus;
+        }
     }
 }
