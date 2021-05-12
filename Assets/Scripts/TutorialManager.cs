@@ -26,6 +26,12 @@ public class TutorialManager : MonoBehaviour
     private GameObject _nextShape;
     private TutorialSpawn _tutorialSpawn;
 
+    // Player Inputs
+    public KeyCode rotate = KeyCode.UpArrow, rotate2 = KeyCode.W;
+    public KeyCode left = KeyCode.LeftArrow, left2 = KeyCode.A;
+    public KeyCode right = KeyCode.RightArrow, right2 = KeyCode.D;
+    public KeyCode down = KeyCode.DownArrow, down2 = KeyCode.S;
+
     private bool _isSpawnTime = false;
 
     void Start()
@@ -55,12 +61,12 @@ public class TutorialManager : MonoBehaviour
 
         if (_stepsIndex == 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
-                Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(left) || Input.GetKeyDown(right) ||
+                Input.GetKeyDown(left2) || Input.GetKeyDown(right2))
 
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
-                    Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(left) || Input.GetKeyDown(right) ||
+                    Input.GetKeyDown(left2) || Input.GetKeyDown(right2))
                 {
                     _stepsIndex++;
                 }
@@ -68,14 +74,14 @@ public class TutorialManager : MonoBehaviour
         }
         else if (_stepsIndex == 1)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(rotate) || Input.GetKeyDown(rotate2))
             {
                 _stepsIndex++;
             }
         }
         else if (_stepsIndex == 2)
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(down) || Input.GetKeyDown(down2))
             {
                 _stepsIndex++;
             }
@@ -106,24 +112,14 @@ public class TutorialManager : MonoBehaviour
         }
         else if (_stepsIndex == 6)
         {
-            
         }
     }
 
     public void SpawnNext()
     {
         // _nextShape = (GameObject) Instantiate(shapes[1], new Vector2(3.0f, 6.0f), Quaternion.identity);
-        
         _nextShape = (GameObject) Instantiate(Resources.Load(GetRandomShape(), typeof(GameObject)),
             new Vector2(3.0f, 6.0f), Quaternion.identity);
-        // if (_isSpawnTime == false)
-        // {
-        //     _nextShape.SetActive(false);
-        // }
-        // else
-        // {
-        //     _nextShape.SetActive(true);
-        // }
     }
 
     private static string GetRandomShape()

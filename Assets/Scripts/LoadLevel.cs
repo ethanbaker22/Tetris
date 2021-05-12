@@ -13,9 +13,7 @@ using UnityEngine.UI;
 public class LoadLevel : MonoBehaviour
 {
     public Slider loadingSlider;
-
     public Text loadingText, loadedText;
-    // public GameObject profile;
 
     public void Loader(int scene)
     {

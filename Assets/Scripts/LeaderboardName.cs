@@ -13,7 +13,7 @@ public class LeaderboardName : MonoBehaviour
 {
     public Text num1, num2, num3, num4;
 
-    private string one, two, three, four;
+    // private string one, two, three, four;
 
     // Start is called before the first frame update
     void Start()

@@ -2862,6 +2862,14 @@ MonoBehaviour:
   playAgain: {fileID: 0}
   menu: {fileID: 0}
   startGame: {fileID: 0}
+  rotate: 273
+  rotate2: 119
+  left: 276
+  left2: 97
+  right: 275
+  right2: 100
+  down: 274
+  down2: 115
 --- !u!1 &1047970041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,7 +2966,7 @@ PrefabInstance:
     - target: {fileID: 4949418539261322110, guid: e2ee0c5f3c913a3488337ce68aece499,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4949418539261322111, guid: e2ee0c5f3c913a3488337ce68aece499,
         type: 3}
@@ -6185,6 +6193,14 @@ MonoBehaviour:
   select: {fileID: 8300000, guid: db17821035d69074d81bb46e16fc4462, type: 3}
   start: {fileID: 8300000, guid: a8ec7c21e07f4a24a8953c42dc4617b8, type: 3}
   success: {fileID: 8300000, guid: 9cbf43cc0ef5350438fa8000a1dbedcd, type: 3}
+  rotate: 273
+  rotate2: 119
+  left: 276
+  left2: 97
+  right: 275
+  right2: 100
+  down: 274
+  down2: 115
   fallTime: 0.8
   oneLineScore: 40
   twoLineScore: 100
@@ -7780,6 +7796,14 @@ MonoBehaviour:
   select: {fileID: 8300000, guid: db17821035d69074d81bb46e16fc4462, type: 3}
   start: {fileID: 8300000, guid: a8ec7c21e07f4a24a8953c42dc4617b8, type: 3}
   success: {fileID: 8300000, guid: 9cbf43cc0ef5350438fa8000a1dbedcd, type: 3}
+  rotate: 273
+  rotate2: 119
+  left: 276
+  left2: 97
+  right: 275
+  right2: 100
+  down: 274
+  down2: 115
   fallTime: 0.8
   oneLineScore: 40
   twoLineScore: 100
@@ -7807,6 +7831,14 @@ MonoBehaviour:
   select: {fileID: 8300000, guid: db17821035d69074d81bb46e16fc4462, type: 3}
   start: {fileID: 8300000, guid: a8ec7c21e07f4a24a8953c42dc4617b8, type: 3}
   success: {fileID: 8300000, guid: 9cbf43cc0ef5350438fa8000a1dbedcd, type: 3}
+  rotate: 273
+  rotate2: 119
+  left: 276
+  left2: 97
+  right: 275
+  right2: 100
+  down: 274
+  down2: 115
   fallTime: 0.8
   oneLineScore: 40
   twoLineScore: 100
@@ -7834,6 +7866,14 @@ MonoBehaviour:
   select: {fileID: 8300000, guid: db17821035d69074d81bb46e16fc4462, type: 3}
   start: {fileID: 8300000, guid: a8ec7c21e07f4a24a8953c42dc4617b8, type: 3}
   success: {fileID: 8300000, guid: 9cbf43cc0ef5350438fa8000a1dbedcd, type: 3}
+  rotate: 273
+  rotate2: 119
+  left: 276
+  left2: 97
+  right: 275
+  right2: 100
+  down: 274
+  down2: 115
   fallTime: 0.8
   oneLineScore: 40
   twoLineScore: 100
@@ -9634,6 +9674,14 @@ MonoBehaviour:
   select: {fileID: 8300000, guid: db17821035d69074d81bb46e16fc4462, type: 3}
   start: {fileID: 8300000, guid: a8ec7c21e07f4a24a8953c42dc4617b8, type: 3}
   success: {fileID: 8300000, guid: 9cbf43cc0ef5350438fa8000a1dbedcd, type: 3}
+  rotate: 273
+  rotate2: 119
+  left: 276
+  left2: 97
+  right: 275
+  right2: 100
+  down: 274
+  down2: 115
   fallTime: 0.8
   oneLineScore: 40
   twoLineScore: 100

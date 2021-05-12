@@ -26,12 +26,11 @@ public class Score : MonoBehaviour
     private string _nameHighScore,
         _nameSecondHighScore,
         _nameThirdHighScore,
-        _nameFourthHighScore,
+        _nameForthHighScore,
         _playerName,
         _beatHighScore,
         _frenzyStatus;
-
-    private Vector3 _position;
+    
 
     private void Start()
     {
@@ -46,10 +45,10 @@ public class Score : MonoBehaviour
         _fourthHighScore = PlayerPrefs.GetInt("Score4");
 
         // Gets Scores Names
-        _nameHighScore = PlayerPrefs.GetString("Score1Name", "#1");
-        _nameSecondHighScore = PlayerPrefs.GetString("Score2Name", "#2");
-        _nameThirdHighScore = PlayerPrefs.GetString("Score3Name", "#3");
-        _nameFourthHighScore = PlayerPrefs.GetString("Score4Name", "#4");
+        _nameHighScore = PlayerPrefs.GetString("Score1Name", "N/A");
+        _nameSecondHighScore = PlayerPrefs.GetString("Score2Name", "N/A");
+        _nameThirdHighScore = PlayerPrefs.GetString("Score3Name", "N/A");
+        _nameForthHighScore = PlayerPrefs.GetString("Score4Name", "N/A");
     }
 
     // Update is called once per frame
@@ -67,10 +66,10 @@ public class Score : MonoBehaviour
         _fourthHighScore = PlayerPrefs.GetInt("Score4");
 
         // Gets Scores Names
-        _nameHighScore = PlayerPrefs.GetString("Score1Name", "#1");
-        _nameSecondHighScore = PlayerPrefs.GetString("Score2Name", "#2");
-        _nameThirdHighScore = PlayerPrefs.GetString("Score3Name", "#3");
-        _nameFourthHighScore = PlayerPrefs.GetString("Score4Name", "#4");
+        _nameHighScore = PlayerPrefs.GetString("Score1Name", "N/A");
+        _nameSecondHighScore = PlayerPrefs.GetString("Score2Name", "N/A");
+        _nameThirdHighScore = PlayerPrefs.GetString("Score3Name", "N/A");
+        _nameForthHighScore = PlayerPrefs.GetString("Score4Name", "N/A");
     }
 
     /**
@@ -79,6 +78,7 @@ public class Score : MonoBehaviour
     public static void NewGame()
     {
         _score = 0;
+        _linesCleared = 0;
         _level = 0;
         // _beatHighScore = "";
     }

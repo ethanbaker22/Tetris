@@ -8,8 +8,6 @@
  */
 public class SpawnShape : MonoBehaviour
 {
-    // public GameObject[] tetrisShape;
-
     private GameObject _tetrisShape, _nextShape, _ghostShape;
 
     private static string _currentShape;
@@ -22,7 +20,7 @@ public class SpawnShape : MonoBehaviour
     {
         NewTetrisShape();
     }
-
+    
     /**
      * Spawns New Shape
      */

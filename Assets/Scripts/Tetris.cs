@@ -14,7 +14,13 @@ public class Tetris : MonoBehaviour
     // Audio clips for the game
     public AudioClip blockRotateSound, clearSound, fallSound, gameOver, move, pause, select, start, success;
 
-    //
+    // User Controls
+    public KeyCode rotate = KeyCode.UpArrow, rotate2 = KeyCode.W;
+    public KeyCode left = KeyCode.LeftArrow, left2 = KeyCode.A;
+    public KeyCode right = KeyCode.RightArrow, right2 = KeyCode.D;
+    public KeyCode down = KeyCode.DownArrow, down2 = KeyCode.S; 
+    
+    // Fall Time Speed
     private float _prevTime;
     [SerializeField] public float fallTime;
 
@@ -24,14 +30,11 @@ public class Tetris : MonoBehaviour
     private static int _currentLevel = 0;
     private static int _linesCleared = 0;
 
-    //
-    // public float frenzyTime = 3f;
-
     // Scoring depending on how many lines are cleared
     [SerializeField] public int oneLineScore, twoLineScore, threeLineScore, fourLineScore;
     private int _rowsCleared = 0;
 
-    // 
+    // Audio Source
     private AudioSource _audioSource;
 
     // Rotation x,y,z which can be changed in the editor
@@ -39,9 +42,7 @@ public class Tetris : MonoBehaviour
 
     // Other classes 
     private SpawnShape _spawnShape;
-
     private static Score _score;
-    // private FrenzyText _frenzyText;
 
     // Add shapes to grid array to know where they are located
     private static readonly Transform[,] Grid = new Transform[Width, Height];
@@ -64,13 +65,15 @@ public class Tetris : MonoBehaviour
         FallSpeed();
     }
 
+
     /**
      * Checks to see if the shape can be moved to the position the user wants it too, if not the shape stays where it is
      */
     private void CheckUserInput()
     {
+        
         // Press left arrow to move one block left
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(left) || Input.GetKeyDown(left2))
         {
             transform.position += new Vector3(-1, 0, 0);
 
@@ -82,7 +85,7 @@ public class Tetris : MonoBehaviour
         }
 
         // Press right arrow to move one block right
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(right) || Input.GetKeyDown(right2))
         {
             transform.position += new Vector3(1, 0, 0);
 
@@ -94,7 +97,7 @@ public class Tetris : MonoBehaviour
         }
 
         // Press up to rotate the shape 90 degrees
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(rotate) || Input.GetKeyDown(rotate2))
         {
             transform.RotateAround(transform.TransformPoint(rotation), new Vector3(0, 0, 1), 90);
 
@@ -112,7 +115,7 @@ public class Tetris : MonoBehaviour
 
         // Press down arrow to move shape down or Hold for it to go faster
         if (Time.time - _prevTime >
-            ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) ? fallTime / 10 : fallTime))
+            ((Input.GetKey(down) || Input.GetKey(down2)) ? fallTime / 10 : fallTime))
         {
             // If holding
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
@@ -129,7 +132,6 @@ public class Tetris : MonoBehaviour
                 AddToGrid();
                 DeleteLinesUponComplete();
                 enabled = false;
-                // gameObject.GetComponent<SpawnShape>().NewTetrisShape();
                 _spawnShape.NewTetrisShape();
             }
 
@@ -156,7 +158,6 @@ public class Tetris : MonoBehaviour
                     AddToGrid();
                     DeleteLinesUponComplete();
                     enabled = false;
-                    // gameObject.GetComponent<SpawnShape>().NewTetrisShape();
                     _spawnShape.NewTetrisShape();
                 }
             }
@@ -286,6 +287,7 @@ public class Tetris : MonoBehaviour
      */
     private void FallSpeed()
     {
+        // Frenzy Levels = 2, 5, 8 & 10
         const float fallTimeLvl2 = 0.5f, fallTimeLvl5 = 0.3f, fallTimeLvl8 = 0.15f, fallTimeLvl10 = 0.1f;
         switch (_currentLevel)
         {
